@@ -204,4 +204,3 @@ replace github.com/zondax/hid => github.com/zondax/hid v0.9.0
 
 // use informal system fork of tendermint
 replace github.com/tendermint/tendermint => github.com/informalsystems/tendermint v0.34.26
-Footer
