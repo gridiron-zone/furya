@@ -4,7 +4,7 @@ order: 2
 
 # Legacy Amino JSON REST
 
-The gridiron versions v1.0.0 (depends on Cosmos-SDK v0.41) and earlier provided REST endpoints to query the state and broadcast transactions. These endpoints are kept in gridiron v1.0, but they are marked as deprecated, and will be removed after a few versions therefore call these endpoints legacy REST endpoints.
+The fury versions v1.0.0 (depends on Cosmos-SDK v0.41) and earlier provided REST endpoints to query the state and broadcast transactions. These endpoints are kept in fury v1.0, but they are marked as deprecated, and will be removed after a few versions therefore call these endpoints legacy REST endpoints.
 
 Some important information concerning all legacy REST endpoints:
 
@@ -13,11 +13,11 @@ Some important information concerning all legacy REST endpoints:
 
 ## API Port, Activation and Configuration
 
-All routes are configured under the following fields in `~/.grid/config/app.toml`:
+All routes are configured under the following fields in `~/.fury/config/app.toml`:
 
 - `api.enable = true|false` field defines if the REST server should be enabled. Defaults to `true`.
 - `api.address = {string}` field defines the address (really, the port, since the host should be kept at `0.0.0.0`) the server should bind to. Defaults to `tcp://0.0.0.0:1317`.
-- some additional API configuration options are defined in `~/.grid/config/app.toml`, along with comments, please refer to that file directly.
+- some additional API configuration options are defined in `~/.fury/config/app.toml`, along with comments, please refer to that file directly.
 
 ### Legacy REST API Routes
 
@@ -308,7 +308,7 @@ For application developers, Legacy REST API routes needs to be wired up to the R
 
 ## Generating and Signing Transactions (Fully Backward Compatible)
 
-The same code as integrating with gridiron-v0.16.3 mainnet. The transaction structure is as follows:
+The same code as integrating with fury-v0.16.3 mainnet. The transaction structure is as follows:
 
 ```json
 {
@@ -318,11 +318,11 @@ The same code as integrating with gridiron-v0.16.3 mainnet. The transaction stru
             {
                 "type": "cosmos-sdk/MsgSend",
                 "value": {
-                    "from_address": "fury:grid:aa1rkgdpj6fyyyu7pnhmc3v7gw9uls4mnajvzdwkt",
-                    "to_address": "fury:grid:aa1q6t5439f0rkvkzl38m0f43e0kpv3mx7x2shlq8",
+                    "from_address": "fury:fury:aa1rkgdpj6fyyyu7pnhmc3v7gw9uls4mnajvzdwkt",
+                    "to_address": "fury:fury:aa1q6t5439f0rkvkzl38m0f43e0kpv3mx7x2shlq8",
                     "amount": [
                         {
-                            "denom": "ugrid",
+                            "denom": "ufury",
                             "amount": "1000000"
                         }
                     ]
@@ -332,14 +332,14 @@ The same code as integrating with gridiron-v0.16.3 mainnet. The transaction stru
         "fee": {
             "amount": [
                 {
-                    "denom": "ugrid",
+                    "denom": "ufury",
                     "amount": "30000"
                 }
             ],
             "gas": "200000"
         },
         "signatures": null,
-        "memo": "Sent via gridiron client"
+        "memo": "Sent via fury client"
     }
 }
 ```
@@ -349,17 +349,17 @@ Where the GRIDhub address prefix uses `did:fury:aa` instead, which affects the f
 - value.msg.value.from_adress
 - value.msg.value.to_address
 
-Denom uses `ugrid` instead (1grid = 10<sup>6</sup>ugrid), which affects fields:
+Denom uses `ufury` instead (1grid = 10<sup>6</sup>ufury), which affects fields:
 
 - value.msg.value.amount.denom
 - value.fee.amount.denom
 
 ## Broadcasting a transaction (Fully Backward Compatible)
 
-The same code as integrating with gridiron mainnet, call `POST` `/txs` to send a transaction, as the example below:
+The same code as integrating with fury mainnet, call `POST` `/txs` to send a transaction, as the example below:
 
 ```bash
-curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"tx\": {\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"from_address\":\"fury:grid:aa1rkgdpj6fyyyu7pnhmc3v7gw9uls4mnajvzdwkt\",\"to_address\":\"fury:grid:aa1q6t5439f0rkvkzl38m0f43e0kpv3mx7x2shlq8\",\"amount\":[{\"denom\":\"ugrid\",\"amount\":\"1000000\"}]}}],\"fee\":{\"amount\":[{\"denom\":\"ugrid\",\"amount\":\"30000\"}],\"gas\":\"200000\"},\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"AxGagdsRTKni/h1+vCFzTpNltwoiU7SwIR2dg6Jl5a//\"},\"signature\":\"Pu8yiRVO8oB2YDDHyB047dXNArbVImasmKBrm8Kr+6B08y8QQ7YG1eVgHi5OIYYclccCf3Ju/BQ78qsMWMniNQ==\"}],\"memo\":\"Sent via gridiron client\"}, \"mode\": \"block\"}"
+curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"tx\": {\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"from_address\":\"fury:fury:aa1rkgdpj6fyyyu7pnhmc3v7gw9uls4mnajvzdwkt\",\"to_address\":\"fury:fury:aa1q6t5439f0rkvkzl38m0f43e0kpv3mx7x2shlq8\",\"amount\":[{\"denom\":\"ufury\",\"amount\":\"1000000\"}]}}],\"fee\":{\"amount\":[{\"denom\":\"ufury\",\"amount\":\"30000\"}],\"gas\":\"200000\"},\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"AxGagdsRTKni/h1+vCFzTpNltwoiU7SwIR2dg6Jl5a//\"},\"signature\":\"Pu8yiRVO8oB2YDDHyB047dXNArbVImasmKBrm8Kr+6B08y8QQ7YG1eVgHi5OIYYclccCf3Ju/BQ78qsMWMniNQ==\"}],\"memo\":\"Sent via fury client\"}, \"mode\": \"block\"}"
 ```
 
 ## Breaking Changes in Querying Transactions
@@ -380,7 +380,7 @@ curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Conte
       "height": "5",
       "txhash": "E663768B616B1ACD2912E47C36FEBC7DB0E0974D6DB3823D4C656E0EAB8C679D",
       "data": "0A060A0473656E64",
-      "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"send\"},{\"key\":\"sender\",\"value\":\"fury:grid:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn\"},{\"key\":\"module\",\"value\":\"bank\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"fury:grid:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc\"},{\"key\":\"sender\",\"value\":\"fury:grid:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn\"},{\"key\":\"amount\",\"value\":\"1000000ugrid\"}]}]}]",
+      "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"send\"},{\"key\":\"sender\",\"value\":\"fury:fury:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn\"},{\"key\":\"module\",\"value\":\"bank\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"fury:fury:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc\"},{\"key\":\"sender\",\"value\":\"fury:fury:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn\"},{\"key\":\"amount\",\"value\":\"1000000ugrid\"}]}]}]",
       "logs": [
           {
               "events": [
@@ -393,7 +393,7 @@ curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Conte
                           },
                           {
                               "key": "sender",
-                              "value": "fury:grid:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn"
+                              "value": "fury:fury:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn"
                           },
                           {
                               "key": "module",
@@ -406,11 +406,11 @@ curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Conte
                       "attributes": [
                           {
                               "key": "recipient",
-                              "value": "fury:grid:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc"
+                              "value": "fury:fury:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc"
                           },
                           {
                               "key": "sender",
-                              "value": "fury:grid:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn"
+                              "value": "fury:fury:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn"
                           },
                           {
                               "key": "amount",
@@ -430,11 +430,11 @@ curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Conte
                   {
                       "type": "cosmos-sdk/MsgSend",
                       "value": {
-                          "from_address": "fury:grid:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn",
-                          "to_address": "fury:grid:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc",
+                          "from_address": "fury:fury:aa18awn3k70u05tlcul8w2qnl64g002uj4kjn93rn",
+                          "to_address": "fury:fury:aa1w976a5jrhsj06dqmrh2x9qxzel74qtcmapklxc",
                           "amount": [
                               {
-                                  "denom": "ugrid",
+                                  "denom": "ufury",
                                   "amount": "1000000"
                               }
                           ]
@@ -444,7 +444,7 @@ curl -X POST "http://localhost:1317/txs" -H "accept: application/json" -H "Conte
               "fee": {
                   "amount": [
                       {
-                          "denom": "ugrid",
+                          "denom": "ufury",
                           "amount": "30000"
                       }
                   ],

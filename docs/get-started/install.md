@@ -29,22 +29,22 @@ Verify that `go` has been installed successfully
 go version
 ```
 
-## Install `grid`
+## Install `fury`
 
-After setting up `go` correctly, you should be able to compile and run `grid`.
+After setting up `go` correctly, you should be able to compile and run `fury`.
 
 Make sure that your server can access to google.com because our project depends on some libraries provided by google. (If you are not able to access google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
 
 ```bash
-git clone https://github.com/gridiron-zone/gridiron
-cd gridiron
+git clone https://github.com/gridiron-zone/fury
+cd fury
 git checkout <version>
 make install
 ```
 
 If your environment variables have set up correctly, you should not get any errors by running the above commands.
-Now check your `grid` version.
+Now check your `fury` version.
 
 ```bash
-grid version
+fury version
 ```

@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "grid-service-result",
-    "description": "GRID Service Result Schema",
+    "title": "fury-service-result",
+    "description": "FURY Service Result Schema",
     "type": "object",
     "properties": {
         "code": {

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/gridiron-zone/gridiron/modules/mint/keeper"
-	"github.com/gridiron-zone/gridiron/modules/mint/types"
+	"github.com/gridiron-zone/fury/modules/mint/keeper"
+	"github.com/gridiron-zone/fury/modules/mint/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

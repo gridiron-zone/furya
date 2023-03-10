@@ -1,18 +1,18 @@
 syntax = "proto3";
-package gridiron.mint;
+package fury.mint;
 
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "mint/mint.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 
-option go_package = "github.com/gridiron-zone/gridiron/modules/mint/types";
+option go_package = "github.com/gridiron-zone/fury/modules/mint/types";
 
 // Query creates service with guardian as rpc
 service Query {
     // Params queries the mint parameters
     rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-        option (google.api.http).get = "/gridiron/mint/params";
+        option (google.api.http).get = "/fury/mint/params";
     }
 }
 

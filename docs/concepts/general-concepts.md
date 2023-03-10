@@ -12,7 +12,7 @@ A full-node is a program that fully validates transactions and blocks of a block
 
 ### Validator Node
 
-The [GRID Hub](../get-started/intro.md#grid-hub) is based on [Cosmos SDK](https://cosmos.network/docs/intro/) and [Tendermint](https://tendermint.com/docs/introduction/what-is-tendermint.html), which relies on a set of validators to secure the network. The role of validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private keys. Validators commit new blocks to the blockchain and receive revenue in exchange for their work. They must also participate in governance by voting on proposals. Validators are weighted according to their total stake.
+The [FURY Hub](../get-started/intro.md#fury-hub) is based on [Cosmos SDK](https://cosmos.network/docs/intro/) and [Tendermint](https://tendermint.com/docs/introduction/what-is-tendermint.html), which relies on a set of validators to secure the network. The role of validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private keys. Validators commit new blocks to the blockchain and receive revenue in exchange for their work. They must also participate in governance by voting on proposals. Validators are weighted according to their total stake.
 
 ### Validator Candidate Node
 
@@ -26,7 +26,7 @@ A validator operator is the only one who can operate the Validator's information
 
 ### Delegator
 
-Delegators are GRID holders who cannot, or do not want to run a validator themselves. GRID holders can delegate GRID to a validator and obtain a part of their revenue in exchange. They can earn as much as the validators and only need to pay some commission.
+Delegators are FURY holders who cannot, or do not want to run a validator themselves. FURY holders can delegate FURY to a validator and obtain a part of their revenue in exchange. They can earn as much as the validators and only need to pay some commission.
 
 ### Profiler
 
@@ -36,15 +36,15 @@ Profiler is a special type of user who can submit software upgrade/halt proposal
 
 Trustee is a special type of user who will receive funds from CommunityTaxUsage proposals
 
-## GRID Token
+## FURY Token
 
-The GRID hub has its own native token known as *GRID*.  It is designed to serve three purposes in the network.
+The FURY hub has its own native token known as *FURY*.  It is designed to serve three purposes in the network.
 
-- **Staking.** Similar to the ATOM token in the Cosmos Hub, the GRID token will be used as a staking token to secure the PoS blockchain.
-- **Transaction Fee.** The GRID token will also be used to pay fees for all transactions in the GRID network.
-- **Service Fee.** It is required that service providers in the GRID network charge service fees denominated in the GRID token.
+- **Staking.** Similar to the ATOM token in the Cosmos Hub, the FURY token will be used as a staking token to secure the PoS blockchain.
+- **Transaction Fee.** The FURY token will also be used to pay fees for all transactions in the FURY network.
+- **Service Fee.** It is required that service providers in the FURY network charge service fees denominated in the FURY token.
 
-It is intended that the GRID network will eventually support all whitelisted fee tokens from the Cosmos network, which can be used to pay the transaction fees and service fees.
+It is intended that the FURY network will eventually support all whitelisted fee tokens from the Cosmos network, which can be used to pay the transaction fees and service fees.
 
 ## Staking Rewards
 
@@ -52,10 +52,10 @@ The validator and its delegators can share the following rewards by proportion:
 
 - **Block Inflation**
 
-  Block Inflation exists to incentivize GRID holders to stake. The more staked GRID tokens are, more secure the network become(Read more about [Staking](../features/staking.md)).
+  Block Inflation exists to incentivize FURY holders to stake. The more staked FURY tokens are, more secure the network become(Read more about [Staking](../features/staking.md)).
 
   Block Inflation will be [distributed every block](../features/mint.md). [Inflation rate](../features/mint.md) in GRIDhub for the first year will be 4%.  **This ration could be adjusted by `parameter-change` proposals**.
-  In this way, loose GRID will devalue year by year.
+  In this way, loose FURY will devalue year by year.
 
 - **Block Proposer Reward**
 
@@ -63,7 +63,7 @@ The validator and its delegators can share the following rewards by proportion:
 
 - **Fee**
 
-  Each transaction needs a [fee](fee.md#fee) for compensating validators' work[Gas](fee.md#gas). These fees can be paid with GRID and may later in any tokens which are whitelisted by the GRIDhub's governance. Fees are distributed to validators in proportion to their stake. A minimum fee/gas ration is set in GRIDhub.
+  Each transaction needs a [fee](fee.md#fee) for compensating validators' work[Gas](fee.md#gas). These fees can be paid with FURY and may later in any tokens which are whitelisted by the GRIDhub's governance. Fees are distributed to validators in proportion to their stake. A minimum fee/gas ration is set in GRIDhub.
 
 Each validator receives revenue in proportion to its total stake. However, before this revenue is distributed to its delegators, the validator can apply a commission for providing staking services.
 
@@ -73,13 +73,13 @@ The following formulas are based on the current [GRIDhub Mainnet Params](gov-par
 
 #### Annual Rewards (ignore proposer rewards and fees)
 
-- **AnnualInflation =** `Base * InflationRate` (aka 2 billion * 4% = 80 million grid)
+- **AnnualInflation =** `Base * InflationRate` (aka 2 billion * 4% = 80 million fury)
 - **ValidatorRewards =** `(AnnualInflation / BondedTokens) * (1 - CommunityTax) * (ValidatorSelfDelegation +  DelegatorsDelegation * ValidatorCommissionRate)`
 - **DelegatorRewards =** `(AnnualInflation / BondedTokens) * (1 - CommunityTax) * DelegatorSelfDelegation * (1 - ValidatorCommissionRate)`
 
 #### Block Rewards
 
-- **BlockInflation =** `AnnualInflation / (365*24*60*12)` (aka 12.68 grid)
+- **BlockInflation =** `AnnualInflation / (365*24*60*12)` (aka 12.68 fury)
 - **ProposerExtraRewards =** `(BaseProposerReward + BonusProposerReward * PrecommitPower/TotalVotingPower) * (BlockInflation + BlockCollectedFees)`
 - **BlockRewards =** `(BlockInflation + BlockCollectedFees) * (1 - CommunityTax) - ProposerExtraRewards`
 - **ValidatorTotalRewards =**

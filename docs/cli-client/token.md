@@ -1,35 +1,35 @@
 # Token
 
-Token module allows you to manage assets on GRID Hub
+Token module allows you to manage assets on FURY Hub
 
 ## Available Commands
 
 | Name                                       | Description                                |
 | ------------------------------------------ | ------------------------------------------ |
-| [issue](#grid-tx-token-issue)              | Issue a new token                          |
-| [edit](#grid-tx-token-edit)                | Edit an existing token                     |
-| [transfer](#grid-tx-token-transfer)        | Transfer the ownership of a token          |
-| [mint](#grid-tx-token-mint)                | Mint tokens to a specified address         |
-| [burn](#grid-tx-token-burn)                | Burn some tokens                           |
-| [token](#grid-query-token-token)           | Query a token by symbol                    |
-| [tokens](#grid-query-token-tokens)         | Query tokens by owner                      |
-| [fee](#grid-query-token-fee)               | Query the token related fees               |
-| [params](#grid-query-token-params)         | Query the token related params             |
-| [total-burn](#grid-query-token-total-burn) | Query the total amount of all burn tokens. |
+| [issue](#fury-tx-token-issue)              | Issue a new token                          |
+| [edit](#fury-tx-token-edit)                | Edit an existing token                     |
+| [transfer](#fury-tx-token-transfer)        | Transfer the ownership of a token          |
+| [mint](#fury-tx-token-mint)                | Mint tokens to a specified address         |
+| [burn](#fury-tx-token-burn)                | Burn some tokens                           |
+| [token](#fury-query-token-token)           | Query a token by symbol                    |
+| [tokens](#fury-query-token-tokens)         | Query tokens by owner                      |
+| [fee](#fury-query-token-fee)               | Query the token related fees               |
+| [params](#fury-query-token-params)         | Query the token related params             |
+| [total-burn](#fury-query-token-total-burn) | Query the total amount of all burn tokens. |
 
-## grid tx token issue
+## fury tx token issue
 
 Issue a new token
 
 ```bash
-grid tx token issue [flags]
+fury tx token issue [flags]
 ```
 
 **Flags:**
 
 | Name, shorthand  | Type    | Required | Default       | Description                                                                                                                    |
 | ---------------- | ------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| --name           | string  | Yes      |               | Name of the newly issued token, limited to 32 unicode characters, e.g. "GRID Network"                                          |
+| --name           | string  | Yes      |               | Name of the newly issued token, limited to 32 unicode characters, e.g. "FURY Network"                                          |
 | --symbol         | string  | Yes      |               | The symbol of the token, length between 3 and 8, alphanumeric characters beginning with alpha, case insensitive                |
 | --initial-supply | uint64  | Yes      |               | The initial supply of this token. The amount before boosting should not exceed 100 billion.                                    |
 | --max-supply     | uint64  |          | 1000000000000 | The hard cap of this token, total supply can not exceed max supply. The amount before boosting should not exceed 1000 billion. |
@@ -40,7 +40,7 @@ grid tx token issue [flags]
 ### Issue a token
 
 ```bash
-grid tx token issue \
+fury tx token issue \
     --name="Kitty Token" \
     --symbol="kitty" \
     --min-unit="kitty" \
@@ -55,27 +55,27 @@ grid tx token issue \
 
 ### Send tokens
 
-You can send any tokens you have just like [sending grid](./bank.md#grid-tx-bank-send)
+You can send any tokens you have just like [sending fury](./bank.md#fury-tx-bank-send)
 
 #### Send tokens
 
 ```bash
-grid tx bank send [from_key_or_address] [to_address] [amount] [flags]
+fury tx bank send [from_key_or_address] [to_address] [amount] [flags]
 ```
 
-## grid tx token edit
+## fury tx token edit
 
 Edit an existing token
 
 ```bash
-grid tx token edit [symbol] [flags]
+fury tx token edit [symbol] [flags]
 ```
 
 **Flags:**
 
 | Name         | Type   | Required | Default | Description                                       |
 | ------------ | ------ | -------- | ------- | ------------------------------------------------- |
-| --name       | string |          |         | The token name, e.g. GRID Network                 |
+| --name       | string |          |         | The token name, e.g. FURY Network                 |
 | --max-supply | uint64 |          | 0       | The max supply of the token                       |
 | --mintable   | bool   |          | false   | Whether the token can be minted, default to false |
 
@@ -84,15 +84,15 @@ grid tx token edit [symbol] [flags]
 ### Edit Token
 
 ```bash
-grid tx token edit <symbol> --name="Cat Token" --max-supply=100000000000 --mintable=true --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx token edit <symbol> --name="Cat Token" --max-supply=100000000000 --mintable=true --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
-## grid tx token transfer
+## fury tx token transfer
 
 Transfer the ownership of a token
 
 ```bash
-grid tx token transfer [symbol] [flags]
+fury tx token transfer [symbol] [flags]
 ```
 
 **Flags:**
@@ -104,15 +104,15 @@ grid tx token transfer [symbol] [flags]
 ### Transfer Token Owner
 
 ```bash
-grid tx token transfer <symbol> --to=<to> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx token transfer <symbol> --to=<to> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
-## grid tx token mint
+## fury tx token mint
 
 Mint tokens to a specified address
 
 ```bash
-grid tx token mint [symbol] [flags]
+fury tx token mint [symbol] [flags]
 ```
 
 **Flags:**
@@ -125,15 +125,15 @@ grid tx token mint [symbol] [flags]
 ### Mint Token
 
 ```bash
-grid tx token mint <symbol> --amount=<amount> --to=<to> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx token mint <symbol> --amount=<amount> --to=<to> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
-## grid tx token burn
+## fury tx token burn
 
 Burn some tokens
 
 ```bash
-grid tx token burn [symbol] [flags]
+fury tx token burn [symbol] [flags]
 ```
 
 **Flags:**
@@ -145,81 +145,81 @@ grid tx token burn [symbol] [flags]
 ### Burn Token
 
 ```bash
-grid tx token burn <symbol> --amount=<amount> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx token burn <symbol> --amount=<amount> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
-## grid query token token
+## fury query token token
 
 Query a token by symbol
 
 ```bash
-grid query token token [denom] [flags]
+fury query token token [denom] [flags]
 ```
 
 ### Query a token
 
 ```bash
-grid query token token <denom>
+fury query token token <denom>
 ```
 
-## grid query token tokens
+## fury query token tokens
 
 Query tokens by the owner which is optional
 
 ```bash
-grid query token tokens [owner] [flags]
+fury query token tokens [owner] [flags]
 ```
 
 ### Query all tokens
 
 ```bash
-grid query token tokens
+fury query token tokens
 ```
 
 ### Query tokens with the specified owner
 
 ```bash
-grid query token tokens <owner>
+fury query token tokens <owner>
 ```
 
-## grid query token fee
+## fury query token fee
 
 Query the token related fees, including token issuance and minting
 
 ```bash
-grid query token fee [symbol] [flags]
+fury query token fee [symbol] [flags]
 ```
 
 ### Query fees of issuing and minting a token
 
 ```bash
-grid query token fee kitty
+fury query token fee kitty
 ```
 
-## grid query token params
+## fury query token params
 
 Query token module params
 
 ```bash
-grid query token params [flags]
+fury query token params [flags]
 ```
 
 ### Query token module params
 
 ```bash
-grid query token params
+fury query token params
 ```
 
-## grid query token total-burn
+## fury query token total-burn
 
 Query the total amount of all burn tokens
 
 ```bash
-grid query token total-burn [flags]
+fury query token total-burn [flags]
 ```
 
 ### Query the total amount of all burn tokens
 
 ```bash
-grid query token total-burn
+fury query token total-burn
 ```

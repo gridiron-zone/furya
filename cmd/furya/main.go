@@ -6,9 +6,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"github.com/gridiron-zone/gridiron/app"
-	"github.com/gridiron-zone/gridiron/cmd/grid/cmd"
-	_ "github.com/gridiron-zone/gridiron/lite/statik"
+	"github.com/gridiron-zone/fury/app"
+	"github.com/gridiron-zone/fury/cmd/fury/cmd"
+	_ "github.com/gridiron-zone/fury/lite/statik"
 )
 
 func main() {

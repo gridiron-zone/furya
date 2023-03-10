@@ -130,8 +130,8 @@ func (m *QuerySupersResponse) GetPagination() *query.PageResponse {
 }
 
 func init() {
-	proto.RegisterType((*QuerySupersRequest)(nil), "gridiron.guardian.QuerySupersRequest")
-	proto.RegisterType((*QuerySupersResponse)(nil), "gridiron.guardian.QuerySupersResponse")
+	proto.RegisterType((*QuerySupersRequest)(nil), "fury.guardian.QuerySupersRequest")
+	proto.RegisterType((*QuerySupersResponse)(nil), "fury.guardian.QuerySupersResponse")
 }
 
 func init() { proto.RegisterFile("guardian/query.proto", fileDescriptor_20cf24f8e5be2110) }
@@ -189,7 +189,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) Supers(ctx context.Context, in *QuerySupersRequest, opts ...grpc.CallOption) (*QuerySupersResponse, error) {
 	out := new(QuerySupersResponse)
-	err := c.cc.Invoke(ctx, "/gridiron.guardian.Query/Supers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/fury.guardian.Query/Supers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -224,7 +224,7 @@ func _Query_Supers_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gridiron.guardian.Query/Supers",
+		FullMethod: "/fury.guardian.Query/Supers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Supers(ctx, req.(*QuerySupersRequest))
@@ -233,7 +233,7 @@ func _Query_Supers_Handler(srv interface{}, ctx context.Context, dec func(interf
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "gridiron.guardian.Query",
+	ServiceName: "fury.guardian.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

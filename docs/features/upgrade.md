@@ -115,7 +115,7 @@ If the current upgrade plan has been executed, but there are problems with the u
 The first step in the implementation of the software upgrade process is to initiate a software upgrade proposal by the governance module. The proposal details the upgrade height or time. For details, see the above [Concept](#Concepts). An example of the command line to initiate a proposal is as follows:
 
 ```bash
-grid tx gov submit-proposal software-upgrade <plan-name> \
+fury tx gov submit-proposal software-upgrade <plan-name> \
   --deposit <deposit> \
   --upgrade-time <upgrade-time> \
   --title <title> \
@@ -132,13 +132,13 @@ grid tx gov submit-proposal software-upgrade <plan-name> \
 The execution process of the software upgrade proposal is basically the same as that of other ordinary proposals. Both validators and delegators are required to comment on the proposal. For specific information, please refer to [governance module](./governance.md). An example of the command line to deposit the proposal is as follows:
 
 ```bash
-grid tx gov deposit <proposal-id> <deposit> --from=<from> --chain-id=<chain-id> --fees=0.3grid -b block -y
+fury tx gov deposit <proposal-id> <deposit> --from=<from> --chain-id=<chain-id> --fees=0.3grid -b block -y
 ```
 
 Once the deposit amount reaches the minimum deposit amount, the proposal will enter the voting period, and the validator or delegator needs to vote on the proposal. An example of the command line to initiate a vote is as follows:
 
 ```bash
-grid tx gov vote <proposal-id> <option> --from=<from> --chain-id=<chain-id> --fees=0.3grid -b block -y
+fury tx gov vote <proposal-id> <option> --from=<from> --chain-id=<chain-id> --fees=0.3grid -b block -y
 ```
 
 When the software upgrade proposal is passed, the upgrade module will create an upgrade plan to stop all nodes from the network consensus at a specified height or time, and wait for the new software to restart the network.

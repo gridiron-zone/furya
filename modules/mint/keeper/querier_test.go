@@ -7,8 +7,8 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/gridiron-zone/gridiron/modules/mint/keeper"
-	"github.com/gridiron-zone/gridiron/modules/mint/types"
+	"github.com/gridiron-zone/fury/modules/mint/keeper"
+	"github.com/gridiron-zone/fury/modules/mint/types"
 )
 
 func TestQuerierSuite(t *testing.T) {

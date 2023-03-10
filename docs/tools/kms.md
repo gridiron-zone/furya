@@ -29,12 +29,12 @@ cargo install tmkms --features=yubihsm --version=0.10.0-beta2
 Initialize configuration files for GRIDhub
 
 ```bash
-tmkms init -n gridiron /path/to/kms/home
+tmkms init -n fury /path/to/kms/home
 ```
 
 ## Configuration
 
-To enable KMS, you need to edit the `priv_validator_laddr` in your `<grid-home>/config/config.toml` file first. e.g.:
+To enable KMS, you need to edit the `priv_validator_laddr` in your `<fury-home>/config/config.toml` file first. e.g.:
 
 ```toml
 # TCP or UNIX socket address for Tendermint to listen on for
@@ -42,14 +42,14 @@ To enable KMS, you need to edit the `priv_validator_laddr` in your `<grid-home>/
 priv_validator_laddr = "localhost:26658"
 ```
 
-Then, downLoad [priv_validator_state.json example](https://github.com/gridiron-zone/gridiron/blob/master/docs/tools/priv_validator_state.json) and modify all field values to match your `<grid-home>/data/priv_validator_state.json` values.
+Then, downLoad [priv_validator_state.json example](https://github.com/gridiron-zone/fury/blob/master/docs/tools/priv_validator_state.json) and modify all field values to match your `<fury-home>/data/priv_validator_state.json` values.
 
 Next, you just need to edit the configuration file `/path/to/kms/home/tmkms.toml` as follows:
 
 - Configure `state_file` as the `priv_validator_state.json` completed in the previous step.
 - Write your Yubihsm password to file `yubihsm-password.txt` and configure `password_file` as it.
-- Edit `addr` to point to your `grid` instance(note: no need to specify the connection id, just like tcp://localhost:26658).
-- Adjust `chain_id` to match your `<grid-home>/config/genesis.json` settings.
+- Edit `addr` to point to your `fury` instance(note: no need to specify the connection id, just like tcp://localhost:26658).
+- Adjust `chain_id` to match your `<fury-home>/config/genesis.json` settings.
 - Edit `auth` to authorize access to your Yubihsm.
 - Edit `keys` to determine which pubkey you will be using.
 - Edit `protocol_version` to v0.34.

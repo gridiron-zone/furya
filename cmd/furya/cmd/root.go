@@ -33,8 +33,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 
-	"github.com/gridiron-zone/gridiron/app"
-	"github.com/gridiron-zone/gridiron/app/params"
+	"github.com/gridiron-zone/fury/app"
+	"github.com/gridiron-zone/fury/app/params"
 )
 
 // NewRootCmd creates a new root command for simd. It is called once in the
@@ -53,8 +53,8 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithViper("")
 
 	rootCmd := &cobra.Command{
-		Use:   "grid",
-		Short: "GRID Hub app command",
+		Use:   "fury",
+		Short: "FURY Hub app command",
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			initClientCtx, err := client.ReadPersistentCommandFlags(initClientCtx, cmd.Flags())
 			if err != nil {

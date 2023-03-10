@@ -71,6 +71,6 @@ rand = seed mod 10^20 / 10^20
 
 ## Actions
 
-- [Request Random Number](../cli-client/rand.md#grid-tx-random-request-random)
-- [Query Random Number](../cli-client/rand.md#grid-query-random-random)
-- [Query Random Queue](../cli-client/rand.md#grid-query-random-queue)
+- [Request Random Number](../cli-client/rand.md#fury-tx-random-request-random)
+- [Query Random Number](../cli-client/rand.md#fury-query-random-random)
+- [Query Random Queue](../cli-client/rand.md#fury-query-random-queue)

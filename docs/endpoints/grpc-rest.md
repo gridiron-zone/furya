@@ -4,15 +4,15 @@ order: 3
 
 # gRPC Gateway JSON REST
 
-In gridiron v1.0.0, the node continues to serve a REST server. However, the existing routes present in version v0.16.3 and earlier are now marked as deprecated, and new routes have been added via gRPC-gateway.
+In fury v1.0.0, the node continues to serve a REST server. However, the existing routes present in version v0.16.3 and earlier are now marked as deprecated, and new routes have been added via gRPC-gateway.
 
 ## API Port, Activation and Configuration
 
-All routes are configured under the following fields in `~/.grid/config/app.toml`:
+All routes are configured under the following fields in `~/.fury/config/app.toml`:
 
 - `api.enable = true|false` field defines if the REST server should be enabled. Defaults to `true`.
 - `api.address = {string}` field defines the address (really, the port, since the host should be kept at `0.0.0.0`) the server should bind to. Defaults to `tcp://0.0.0.0:1317`.
-- some additional API configuration options are defined in `~/.grid/config/app.toml`, along with comments, please refer to that file directly.
+- some additional API configuration options are defined in `~/.fury/config/app.toml`, along with comments, please refer to that file directly.
 
 ### gRPC-gateway REST Routes
 
@@ -28,9 +28,9 @@ For application developers, gRPC-gateway REST routes needs to be wired up to the
 
 A [Swagger](https://swagger.io/) (or OpenAPIv2) specification file is exposed under the `/swagger` route on the API server. Swagger is an open specification describing the API endpoints a server serves, including description, input arguments, return types and much more about each endpoint.
 
-Enabling the `/swagger` endpoint is configurable inside `~/.grid/config/app.toml` via the `api.swagger` field, which is set to true by default.
+Enabling the `/swagger` endpoint is configurable inside `~/.fury/config/app.toml` via the `api.swagger` field, which is set to true by default.
 
-For application developers, you may want to generate your own Swagger definitions based on your custom modules. The GRIDhub's [Swagger generation script](https://github.com/gridiron-zone/gridiron/blob/master/scripts/protoc-swagger-gen.sh) is a good place to start.
+For application developers, you may want to generate your own Swagger definitions based on your custom modules. The GRIDhub's [Swagger generation script](https://github.com/gridiron-zone/fury/blob/master/scripts/protoc-swagger-gen.sh) is a good place to start.
 
 ## API Endpoints
 
@@ -145,8 +145,8 @@ For application developers, you may want to generate your own Swagger definition
 | `GET` `/irismod/random/queue`                                                                                                               | Query the random request queue                                                                   |                                                                                   |
 | `GET` `/irismod/random/randoms/{req_id}`                                                                                                    | Query the random result                                                                          |                                                                                   |
 | `GET` `/irismod/record/records/{record_id}`                                                                                                 | Query the record by the given record ID                                                          |                                                                                   |
-| `GET` `/gridiron/mint/params`                                                                                                                | Query the mint parameters                                                                        |                                                                                   |
-| `GET` `/gridiron/guardian/supers`                                                                                                            | Return all Supers                                                                                |                                                                                   |
+| `GET` `/fury/mint/params`                                                                                                                | Query the mint parameters                                                                        |                                                                                   |
+| `GET` `/fury/guardian/supers`                                                                                                            | Return all Supers                                                                                |                                                                                   |
 
 **Tendermint API Endpoints**
 

@@ -4,7 +4,7 @@
 
 ## Summary
 
-GRID Service (a.k.a. iService) is intended to bridge the gap between the blockchain world and the conventional application world.  It formalizes off-chain service definition and binding (provider registration), facilitates invocation and interaction with those services, and mediates service governance process (profiling and dispute resolution).
+FURY Service (a.k.a. iService) is intended to bridge the gap between the blockchain world and the conventional application world.  It formalizes off-chain service definition and binding (provider registration), facilitates invocation and interaction with those services, and mediates service governance process (profiling and dispute resolution).
 
 ## Service Definition
 
@@ -56,10 +56,10 @@ Any user can define services on the blockchain. The interface of a service must 
 
 ```bash
 # create a new service definition
-grid tx service define --name=<service-name> <schemas-json or path/to/schemas.json> --description=<service-description> --author-description=<author-description> --tags=<tag1,tag2,...>
+fury tx service define --name=<service-name> <schemas-json or path/to/schemas.json> --description=<service-description> --author-description=<author-description> --tags=<tag1,tag2,...>
 
 # query service definition
-grid q service definition <service-name>
+fury q service definition <service-name>
 ```
 
 ## Service Binding
@@ -94,7 +94,7 @@ The pricing object specifies how the provider charges for its service; it must c
 }
 ```
 
-Providers can opt to accept tokens other than `grid` for their services, e.g., `0.03link`. Price is a factor that consumers will consider when picking from a number of providers that offer the same service.
+Providers can opt to accept tokens other than `fury` for their services, e.g., `0.03link`. Price is a factor that consumers will consider when picking from a number of providers that offer the same service.
 
 ### Deposit
 
@@ -112,31 +112,31 @@ Service bindings can be updated at any time by their owners to adjust pricing, i
 
 ```bash
 # create a new service binding
-grid tx service bind <service-name> <provider-address> --deposit=<deposit> --qos=<qos> --pricing=<pricing-json or path/to/pricing.json>
+fury tx service bind <service-name> <provider-address> --deposit=<deposit> --qos=<qos> --pricing=<pricing-json or path/to/pricing.json>
 
 # update a service binding
-grid tx service update-binding <service-name> <provider-address> --deposit=<added-deposit> --qos=<qos> --pricing=<pricing-json or path/to/pricing.json>
+fury tx service update-binding <service-name> <provider-address> --deposit=<added-deposit> --qos=<qos> --pricing=<pricing-json or path/to/pricing.json>
 
 # enable an inactive service binding
-grid tx service enable <service-name> <provider-address> --deposit=<added-deposit>
+fury tx service enable <service-name> <provider-address> --deposit=<added-deposit>
 
 # disable an active service binding
-grid tx service disable <service-name> <provider-address>
+fury tx service disable <service-name> <provider-address>
 
 # request refund of service binding deposit
-grid tx service refund-deposit <service-name> <provider-address>
+fury tx service refund-deposit <service-name> <provider-address>
 
 # list all the bindings of a service
-grid tx service bindings <service-name>
+fury tx service bindings <service-name>
 
 # list all the bindings of a service, owned by a given account
-grid q service bindings service bindings <service-name> --owner <address>
+fury q service bindings service bindings <service-name> --owner <address>
 
 # query a specific service binding
-grid q service binding <service-name> <provider-address>
+fury q service binding <service-name> <provider-address>
 
 # query the pricing schema
-grid q service schema pricing
+fury q service schema pricing
 ```
 
 ## Service Invocation
@@ -181,31 +181,31 @@ When a request context is successfully created, a `context id` is returned to th
 
 ```bash
 # create a repeated request context, with no callback
-grid tx service call --service-name=<service name> --data=<request input> --providers=<provider list> --service-fee-cap=1grid --timeout 50 --repeated --frequency=50 --total=100
+fury tx service call --service-name=<service name> --data=<request input> --providers=<provider list> --service-fee-cap=1grid --timeout 50 --repeated --frequency=50 --total=100
 
 # update an existing request context
-grid tx service update <request-context-id> --frequency=20 --total=200
+fury tx service update <request-context-id> --frequency=20 --total=200
 
 # pause a running request context
-grid tx service pause <request-context-id>
+fury tx service pause <request-context-id>
 
 # start a paused request context
-grid tx service start <request-context-id>
+fury tx service start <request-context-id>
 
 # permanently kill a request context
-grid tx service kill <request-context-id>
+fury tx service kill <request-context-id>
 
 # query a previously created request context by its id
-grid q service request-context <request-context-id>
+fury q service request-context <request-context-id>
 
 # list all the requests generated for a given request batch
-grid q service requests <request-context-id> <batch-counter>
+fury q service requests <request-context-id> <batch-counter>
 
 # list all the responses received for a given request batch
-grid q service responses <request-context-id> <batch-counter>
+fury q service responses <request-context-id> <batch-counter>
 
 # query a specific response
-grid q service response <request-id>
+fury q service response <request-id>
 ```
 
 ## Service Response
@@ -231,16 +231,16 @@ The output object is required in the response only when the result code equals `
 
 ```bash
 # list all pending requests targeting a given provider
-grid q service requests <service-name> <provider>
+fury q service requests <service-name> <provider>
 
 # query a specific request
-grid q service request <request-id>
+fury q service request <request-id>
 
 # send a response back, matching a specific request
-grid tx service respond --request-id=<request-id> --result='{"code":200,"message":"success"}' --data=<response output>
+fury tx service respond --request-id=<request-id> --result='{"code":200,"message":"success"}' --data=<response output>
 
 # query the result schema
-grid q service schema result
+fury q service schema result
 ```
 
 ## Service Fees
@@ -261,19 +261,19 @@ Right before a service fee is paid to a provider, a _tax_, in the amount of `Ser
 
 ```bash
 # set withdrawal address
-grid tx service set-withdraw-addr <withdrawal-address>
+fury tx service set-withdraw-addr <withdrawal-address>
 
 # query withdrawal address of a given account
-grid q service withdraw-addr <address>
+fury q service withdraw-addr <address>
 
 # query a provider's earned fees
-grid q service fees <provider-address>
+fury q service fees <provider-address>
 
 # withdraw earned fees from all providers
-grid tx service withdraw-fees
+fury tx service withdraw-fees
 
 # withdraw earned fees from a given provider
-grid tx service withdraw-fees <provider-address>
+fury tx service withdraw-fees <provider-address>
 ```
 
 ## Service Governance (TODO)

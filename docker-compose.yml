@@ -3,48 +3,48 @@ version: '3'
 services:
   gridnode0:
     container_name: gridnode0
-    image: furygridiron/gridiron:latest
+    image: furygridiron/fury:latest
     ports:
     - "26656-26657:26656-26657"
     volumes:
     - ./build:/home
-    command: /bin/sh -c 'cd /home/nodecluster/node0 && grid start --home grid'
+    command: /bin/sh -c 'cd /home/nodecluster/node0 && fury start --home fury'
     networks:
       localnet:
         ipv4_address: 192.168.10.2
 
   gridnode1:
     container_name: gridnode1
-    image: furygridiron/gridiron:latest
+    image: furygridiron/fury:latest
     ports:
     - "26659-26660:26656-26657"
     volumes:
     - ./build:/home
-    command: /bin/sh -c 'cd /home/nodecluster/node1 && grid start --home grid'
+    command: /bin/sh -c 'cd /home/nodecluster/node1 && fury start --home fury'
     networks:
       localnet:
         ipv4_address: 192.168.10.3
 
   gridnode2:
     container_name: gridnode2
-    image: furygridiron/gridiron:latest
+    image: furygridiron/fury:latest
     ports:
     - "26661-26662:26656-26657"
     volumes:
     - ./build:/home
-    command: /bin/sh -c 'cd /home/nodecluster/node2 && grid start --home grid'
+    command: /bin/sh -c 'cd /home/nodecluster/node2 && fury start --home fury'
     networks:
       localnet:
         ipv4_address: 192.168.10.4
 
   gridnode3:
     container_name: gridnode3
-    image: furygridiron/gridiron:latest
+    image: furygridiron/fury:latest
     ports:
     - "26663-26664:26656-26657"
     volumes:
     - ./build:/home
-    command: /bin/sh -c 'cd /home/nodecluster/node3 && grid start --home grid'
+    command: /bin/sh -c 'cd /home/nodecluster/node3 && fury start --home fury'
     networks:
       localnet:
         ipv4_address: 192.168.10.5

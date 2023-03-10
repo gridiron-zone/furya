@@ -54,7 +54,7 @@ func (AccountType) EnumDescriptor() ([]byte, []int) {
 // Super defines the super standard
 type Super struct {
 	Description string      `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
-	AccountType AccountType `protobuf:"varint,2,opt,name=account_type,json=accountType,proto3,enum=gridiron.guardian.AccountType" json:"account_type,omitempty" yaml:"account_type"`
+	AccountType AccountType `protobuf:"varint,2,opt,name=account_type,json=accountType,proto3,enum=fury.guardian.AccountType" json:"account_type,omitempty" yaml:"account_type"`
 	Address     string      `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
 	AddedBy     string      `protobuf:"bytes,4,opt,name=added_by,json=addedBy,proto3" json:"added_by,omitempty"`
 }
@@ -121,8 +121,8 @@ func (m *Super) GetAddedBy() string {
 }
 
 func init() {
-	proto.RegisterEnum("gridiron.guardian.AccountType", AccountType_name, AccountType_value)
-	proto.RegisterType((*Super)(nil), "gridiron.guardian.Super")
+	proto.RegisterEnum("fury.guardian.AccountType", AccountType_name, AccountType_value)
+	proto.RegisterType((*Super)(nil), "fury.guardian.Super")
 }
 
 func init() { proto.RegisterFile("guardian/guardian.proto", fileDescriptor_07c8fad859e95e75) }

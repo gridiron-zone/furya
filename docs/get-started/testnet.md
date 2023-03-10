@@ -4,7 +4,7 @@ order: 4
 
 # Join The Testnet
 
-After GRID Hub 1.0 upgrade of mainnet, **Nyancat Testnet** starts to operate as a stable application testnet which has the same version as the mainnet, so that the service providers of GRIDnet can develop their apps on or interact with GRIDhub without running a node or lcd instance.
+After FURY Hub 1.0 upgrade of mainnet, **Nyancat Testnet** starts to operate as a stable application testnet which has the same version as the mainnet, so that the service providers of GRIDnet can develop their apps on or interact with GRIDhub without running a node or lcd instance.
 
 ## Public Endpoints
 
@@ -18,18 +18,18 @@ After GRID Hub 1.0 upgrade of mainnet, **Nyancat Testnet** starts to operate as 
 
 ### Start node from genesis
 ::tip 
-You must use Gridiron [v1.1.1](https://github.com/gridiron-zone/gridiron/releases/tag/v1.1.1)[ ](https://github.com/gridiron-zone/gridiron/releases/tag/v1.0.1) to initialize your node::
+You must use Gridiron [v1.1.1](https://github.com/gridiron-zone/fury/releases/tag/v1.1.1)[ ](https://github.com/gridiron-zone/fury/releases/tag/v1.0.1) to initialize your node::
 
 ```bash
 # init node
-grid init <moniker> --chain-id=nyancat-8
+fury init <moniker> --chain-id=nyancat-8
 
 # download public config.toml and genesis.json
-curl -o ~/.grid/config/config.toml https://github.com/irisnet/testnets/blob/master/nyancat/config/config.toml
-curl -o ~/.grid/config/genesis.json https://raw.githubusercontent.com/irisnet/testnets/master/nyancat/config/genesis.json
+curl -o ~/.fury/config/config.toml https://github.com/irisnet/testnets/blob/master/nyancat/config/config.toml
+curl -o ~/.fury/config/genesis.json https://raw.githubusercontent.com/irisnet/testnets/master/nyancat/config/genesis.json
 
 # Start the node (also running in the background, such as nohup or systemd)
-grid start
+fury start
 ```
 
 

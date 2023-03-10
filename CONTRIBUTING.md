@@ -1,13 +1,13 @@
 # Contributing
 
-Thank you for considering making contributions to gridiron!
+Thank you for considering making contributions to fury!
 
 Contributing to this repo can mean many things such as participated in
 discussion or proposing code changes. To ensure a smooth workflow for all
 contributors, the general procedure for contributing has been established:
 
-  1. either [open](https://github.com/gridiron-zone/gridiron/issues/new) or
-     [find](https://github.com/gridiron-zone/gridiron/issues) an issue you'd like to help with,
+  1. either [open](https://github.com/gridiron-zone/fury/issues/new) or
+     [find](https://github.com/gridiron-zone/fury/issues) an issue you'd like to help with,
   2. participate in thoughtful discussion on that issue,
   3. if you would then like to contribute code:
      1. if the issue is a proposal, ensure that the proposal has been accepted,

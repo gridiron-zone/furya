@@ -26,7 +26,7 @@ An asset class can be created by specifying the DenomName and the creator.
 `CLI`
 
 ```plain
-grid tx mt issue --name=<denom-name> --from=<sender-address>
+fury tx mt issue --name=<denom-name> --from=<sender-address>
 ```
 
 ### Production
@@ -36,7 +36,7 @@ After issuing an asset class, a specific asset of that class can be created, dur
 `CLI`
 
 ```plain
-grid tx mt mint <denom-id> --amount=<amount> --data=<data> --from=<sender-address> --recipient=<recipient-address>
+fury tx mt mint <denom-id> --amount=<amount> --data=<data> --from=<sender-address> --recipient=<recipient-address>
 ```
 
 ### Increase of Issuance
@@ -46,7 +46,7 @@ After issuing a specific asset, the owner of the asset class can also choose to 
 `CLI`
 
 ```plain
-grid tx mt mint <denom-id> --mt-id=<mt-id> --amount=<amount> --from=<sender-address> --recipient=<recipient-address>
+fury tx mt mint <denom-id> --mt-id=<mt-id> --amount=<amount> --from=<sender-address> --recipient=<recipient-address>
 ```
 
 ### Editing
@@ -56,7 +56,7 @@ Updates can be made to the metadata of a specified asset.
 `CLI`
 
 ```plain
-grid tx mt edit <denom-id> <mt-id> --data=<data> --from=<sender-address>
+fury tx mt edit <denom-id> <mt-id> --data=<data> --from=<sender-address>
 ```
 
 ### Transfer
@@ -67,7 +67,7 @@ Assets can be transferred. The amount of assets to be transferred can be specifi
 `CLI`
 
 ```plain
-grid tx mt transfer <sender> <recipient> <denom-id> <mt-id> <amount>
+fury tx mt transfer <sender> <recipient> <denom-id> <mt-id> <amount>
 ```
 
 ### Burn
@@ -77,7 +77,7 @@ Assets can be burned. The amount of assets to be burned can be specified.
 `CLI`
 
 ```plain
-grid tx mt burn <denom-id> <mt-id> <amount> --from=<sender-address>
+fury tx mt burn <denom-id> <mt-id> <amount> --from=<sender-address>
 ```
 
 ### Query a specified asset class
@@ -87,7 +87,7 @@ Query the asset class through the DenomID.
 `CLI`
 
 ```plain
-grid query mt denom <denom-id>
+fury query mt denom <denom-id>
 ```
 
 ### Query all asset classes
@@ -97,7 +97,7 @@ Query all issued asset classes.
 `CLI`
 
 ```plain
-grid query mt denoms
+fury query mt denoms
 ```
 
 ### Query the total amount of assets in a specified asset class
@@ -107,7 +107,7 @@ Query the total amount of assets through the DenomID.
 `CLI`
 
 ```plain
-grid query mt supply <denom-id> <mt-id>
+fury query mt supply <denom-id> <mt-id>
 ```
 
 ### Query all assets in a specified account
@@ -117,7 +117,7 @@ Query all assets owned by an account in a specified asset class.
 `CLI`
 
 ```plain
-grid query mt balances <owner> <denom-id>
+fury query mt balances <owner> <denom-id>
 ```
 
 ### Query specified assets
@@ -127,7 +127,7 @@ Query the information of a specific asset through the DenomID and MtID.
 `CLI`
 
 ```plain
-grid query mt token <denom-id> <mt-id>
+fury query mt token <denom-id> <mt-id>
 ```
 
 ### Query all assets in a specified asset class
@@ -137,5 +137,5 @@ Query all assets in a specified asset class through the DenomID.
 `CLI`
 
 ```plain
-grid query mt tokens <denom-id>
+fury query mt tokens <denom-id>
 ```

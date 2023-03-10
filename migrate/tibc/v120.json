@@ -75,7 +75,7 @@
       "timeDelay": "0"
     },
     "relayers": [
-      "fury:grid:aa1vcghfru68sxgpxcd0yfeqt50h8wunf0w574plw"
+      "fury:fury:aa1vcghfru68sxgpxcd0yfeqt50h8wunf0w574plw"
     ]
   },
   {
@@ -119,7 +119,7 @@
       "blockDelay": "7"
     },
     "relayers": [
-      "fury:grid:aa17yh4zxe8t3cmqj2exh6g2ncr8kqvh997yuyu8l"
+      "fury:fury:aa17yh4zxe8t3cmqj2exh6g2ncr8kqvh997yuyu8l"
     ]
   }
 ]

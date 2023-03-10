@@ -531,26 +531,26 @@ order: 6
     - [Msg](#irismod.farm.Msg)
   
 - [guardian/guardian.proto](#guardian/guardian.proto)
-    - [Super](#gridiron.guardian.Super)
+    - [Super](#fury.guardian.Super)
   
-    - [AccountType](#gridiron.guardian.AccountType)
+    - [AccountType](#fury.guardian.AccountType)
   
 - [guardian/genesis.proto](#guardian/genesis.proto)
-    - [GenesisState](#gridiron.guardian.GenesisState)
+    - [GenesisState](#fury.guardian.GenesisState)
   
 - [guardian/query.proto](#guardian/query.proto)
-    - [QuerySupersRequest](#gridiron.guardian.QuerySupersRequest)
-    - [QuerySupersResponse](#gridiron.guardian.QuerySupersResponse)
+    - [QuerySupersRequest](#fury.guardian.QuerySupersRequest)
+    - [QuerySupersResponse](#fury.guardian.QuerySupersResponse)
   
-    - [Query](#gridiron.guardian.Query)
+    - [Query](#fury.guardian.Query)
   
 - [guardian/tx.proto](#guardian/tx.proto)
-    - [MsgAddSuper](#gridiron.guardian.MsgAddSuper)
-    - [MsgAddSuperResponse](#gridiron.guardian.MsgAddSuperResponse)
-    - [MsgDeleteSuper](#gridiron.guardian.MsgDeleteSuper)
-    - [MsgDeleteSuperResponse](#gridiron.guardian.MsgDeleteSuperResponse)
+    - [MsgAddSuper](#fury.guardian.MsgAddSuper)
+    - [MsgAddSuperResponse](#fury.guardian.MsgAddSuperResponse)
+    - [MsgDeleteSuper](#fury.guardian.MsgDeleteSuper)
+    - [MsgDeleteSuperResponse](#fury.guardian.MsgDeleteSuperResponse)
   
-    - [Msg](#gridiron.guardian.Msg)
+    - [Msg](#fury.guardian.Msg)
   
 - [htlc/htlc.proto](#htlc/htlc.proto)
     - [AssetParam](#irismod.htlc.AssetParam)
@@ -796,17 +796,17 @@ order: 6
     - [Misbehaviour](#ibc.lightclients.tendermint.v1.Misbehaviour)
   
 - [mint/mint.proto](#mint/mint.proto)
-    - [Minter](#gridiron.mint.Minter)
-    - [Params](#gridiron.mint.Params)
+    - [Minter](#fury.mint.Minter)
+    - [Params](#fury.mint.Params)
   
 - [mint/genesis.proto](#mint/genesis.proto)
-    - [GenesisState](#gridiron.mint.GenesisState)
+    - [GenesisState](#fury.mint.GenesisState)
   
 - [mint/query.proto](#mint/query.proto)
-    - [QueryParamsRequest](#gridiron.mint.QueryParamsRequest)
-    - [QueryParamsResponse](#gridiron.mint.QueryParamsResponse)
+    - [QueryParamsRequest](#fury.mint.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.mint.QueryParamsResponse)
   
-    - [Query](#gridiron.mint.Query)
+    - [Query](#fury.mint.Query)
   
 - [nft/nft.proto](#nft/nft.proto)
     - [BaseNFT](#irismod.nft.BaseNFT)
@@ -8032,7 +8032,7 @@ Msg defines the farm Msg service.
 
 
 
-<a name="gridiron.guardian.Super"></a>
+<a name="fury.guardian.Super"></a>
 
 ### Super
 Super defines the super standard
@@ -8041,7 +8041,7 @@ Super defines the super standard
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `description` | [string](#string) |  |  |
-| `account_type` | [AccountType](#gridiron.guardian.AccountType) |  |  |
+| `account_type` | [AccountType](#fury.guardian.AccountType) |  |  |
 | `address` | [string](#string) |  |  |
 | `added_by` | [string](#string) |  |  |
 
@@ -8052,7 +8052,7 @@ Super defines the super standard
  <!-- end messages -->
 
 
-<a name="gridiron.guardian.AccountType"></a>
+<a name="fury.guardian.AccountType"></a>
 
 ### AccountType
 AccountType defines the super account type
@@ -8078,7 +8078,7 @@ AccountType defines the super account type
 
 
 
-<a name="gridiron.guardian.GenesisState"></a>
+<a name="fury.guardian.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the guardian module's genesis state
@@ -8086,7 +8086,7 @@ GenesisState defines the guardian module's genesis state
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `supers` | [Super](#gridiron.guardian.Super) | repeated |  |
+| `supers` | [Super](#fury.guardian.Super) | repeated |  |
 
 
 
@@ -8109,7 +8109,7 @@ GenesisState defines the guardian module's genesis state
 
 
 
-<a name="gridiron.guardian.QuerySupersRequest"></a>
+<a name="fury.guardian.QuerySupersRequest"></a>
 
 ### QuerySupersRequest
 QuerySupersRequest is request type for the Query/Supers RPC method
@@ -8124,7 +8124,7 @@ QuerySupersRequest is request type for the Query/Supers RPC method
 
 
 
-<a name="gridiron.guardian.QuerySupersResponse"></a>
+<a name="fury.guardian.QuerySupersResponse"></a>
 
 ### QuerySupersResponse
 QuerySupersResponse is response type for the Query/Supers RPC method
@@ -8132,7 +8132,7 @@ QuerySupersResponse is response type for the Query/Supers RPC method
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `supers` | [Super](#gridiron.guardian.Super) | repeated |  |
+| `supers` | [Super](#fury.guardian.Super) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -8146,14 +8146,14 @@ QuerySupersResponse is response type for the Query/Supers RPC method
  <!-- end HasExtensions -->
 
 
-<a name="gridiron.guardian.Query"></a>
+<a name="fury.guardian.Query"></a>
 
 ### Query
 Query creates service with guardian as RPC
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Supers` | [QuerySupersRequest](#gridiron.guardian.QuerySupersRequest) | [QuerySupersResponse](#gridiron.guardian.QuerySupersResponse) | Supers returns all Supers | GET|/gridiron/guardian/supers|
+| `Supers` | [QuerySupersRequest](#fury.guardian.QuerySupersRequest) | [QuerySupersResponse](#fury.guardian.QuerySupersResponse) | Supers returns all Supers | GET|/fury/guardian/supers|
 
  <!-- end services -->
 
@@ -8166,7 +8166,7 @@ Query creates service with guardian as RPC
 
 
 
-<a name="gridiron.guardian.MsgAddSuper"></a>
+<a name="fury.guardian.MsgAddSuper"></a>
 
 ### MsgAddSuper
 MsgAddSuper defines the properties of add super account message
@@ -8183,7 +8183,7 @@ MsgAddSuper defines the properties of add super account message
 
 
 
-<a name="gridiron.guardian.MsgAddSuperResponse"></a>
+<a name="fury.guardian.MsgAddSuperResponse"></a>
 
 ### MsgAddSuperResponse
 MsgAddSuperResponse defines the Msg/AddSuper response type
@@ -8193,7 +8193,7 @@ MsgAddSuperResponse defines the Msg/AddSuper response type
 
 
 
-<a name="gridiron.guardian.MsgDeleteSuper"></a>
+<a name="fury.guardian.MsgDeleteSuper"></a>
 
 ### MsgDeleteSuper
 MsgDeleteSuper defines the properties of delete super account message
@@ -8209,7 +8209,7 @@ MsgDeleteSuper defines the properties of delete super account message
 
 
 
-<a name="gridiron.guardian.MsgDeleteSuperResponse"></a>
+<a name="fury.guardian.MsgDeleteSuperResponse"></a>
 
 ### MsgDeleteSuperResponse
 MsgDeleteSuperResponse defines the Msg/DeleteSuper response type
@@ -8225,15 +8225,15 @@ MsgDeleteSuperResponse defines the Msg/DeleteSuper response type
  <!-- end HasExtensions -->
 
 
-<a name="gridiron.guardian.Msg"></a>
+<a name="fury.guardian.Msg"></a>
 
 ### Msg
 Msg defines the guardian Msg service
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `AddSuper` | [MsgAddSuper](#gridiron.guardian.MsgAddSuper) | [MsgAddSuperResponse](#gridiron.guardian.MsgAddSuperResponse) | AddSuper defines a method for adding a super account | |
-| `DeleteSuper` | [MsgDeleteSuper](#gridiron.guardian.MsgDeleteSuper) | [MsgDeleteSuperResponse](#gridiron.guardian.MsgDeleteSuperResponse) | DeleteSuper defines a method for deleting a super account | |
+| `AddSuper` | [MsgAddSuper](#fury.guardian.MsgAddSuper) | [MsgAddSuperResponse](#fury.guardian.MsgAddSuperResponse) | AddSuper defines a method for adding a super account | |
+| `DeleteSuper` | [MsgDeleteSuper](#fury.guardian.MsgDeleteSuper) | [MsgDeleteSuperResponse](#fury.guardian.MsgDeleteSuperResponse) | DeleteSuper defines a method for deleting a super account | |
 
  <!-- end services -->
 
@@ -11652,7 +11652,7 @@ that implements Misbehaviour interface expected by ICS-02
 
 
 
-<a name="gridiron.mint.Minter"></a>
+<a name="fury.mint.Minter"></a>
 
 ### Minter
 Minter represents the minting state
@@ -11668,7 +11668,7 @@ Minter represents the minting state
 
 
 
-<a name="gridiron.mint.Params"></a>
+<a name="fury.mint.Params"></a>
 
 ### Params
 Params defines mint module's parameters
@@ -11700,7 +11700,7 @@ Params defines mint module's parameters
 
 
 
-<a name="gridiron.mint.GenesisState"></a>
+<a name="fury.mint.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the mint module's genesis state
@@ -11708,8 +11708,8 @@ GenesisState defines the mint module's genesis state
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `minter` | [Minter](#gridiron.mint.Minter) |  |  |
-| `params` | [Params](#gridiron.mint.Params) |  |  |
+| `minter` | [Minter](#fury.mint.Minter) |  |  |
+| `params` | [Params](#fury.mint.Params) |  |  |
 
 
 
@@ -11732,7 +11732,7 @@ GenesisState defines the mint module's genesis state
 
 
 
-<a name="gridiron.mint.QueryParamsRequest"></a>
+<a name="fury.mint.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is request type for the Query/Parameters RPC method
@@ -11742,7 +11742,7 @@ QueryParamsRequest is request type for the Query/Parameters RPC method
 
 
 
-<a name="gridiron.mint.QueryParamsResponse"></a>
+<a name="fury.mint.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is response type for the Query/Parameters RPC method
@@ -11750,7 +11750,7 @@ QueryParamsResponse is response type for the Query/Parameters RPC method
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#gridiron.mint.Params) |  |  |
+| `params` | [Params](#fury.mint.Params) |  |  |
 | `res` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -11764,14 +11764,14 @@ QueryParamsResponse is response type for the Query/Parameters RPC method
  <!-- end HasExtensions -->
 
 
-<a name="gridiron.mint.Query"></a>
+<a name="fury.mint.Query"></a>
 
 ### Query
 Query creates service with guardian as rpc
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#gridiron.mint.QueryParamsRequest) | [QueryParamsResponse](#gridiron.mint.QueryParamsResponse) | Params queries the mint parameters | GET|/gridiron/mint/params|
+| `Params` | [QueryParamsRequest](#fury.mint.QueryParamsRequest) | [QueryParamsResponse](#fury.mint.QueryParamsResponse) | Params queries the mint parameters | GET|/fury/mint/params|
 
  <!-- end services -->
 

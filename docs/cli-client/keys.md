@@ -1,27 +1,27 @@
 # Keys
 
-Keys allows you to manage your local tendermint keystore (wallets) for grid.
+Keys allows you to manage your local tendermint keystore (wallets) for fury.
 
 ## Available Commands
 
 | Name                            | Description                                                                                      |
 | ------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [add](#grid-keys-add)           | Add an encrypted private key (either newly generated or recovered), encrypt it, and save to disk |
-| [delete](#grid-keys-delete)     | Delete the given key                                                                             |
-| [export](#grid-keys-export)     | Export private keys                                                                              |
-| [import](#grid-keys-import)     | Import private keys into the local keybase                                                       |
-| [list](#grid-keys-list)         | List all keys                                                                                    |
-| [migrate](#grid-keys-migrate)   | Migrate keys from the legacy (db-based) Keybase                                                  |
-| [mnemonic](#grid-keys-mnemonic) | Compute the bip39 mnemonic for some input entropy                                                |
-| [parse](#grid-keys-parse)       | Parse address from hex to bech32 and vice versa                                                  |
-| [show](#grid-keys-show)         | Retrieve key information by name or address                                                      |
+| [add](#fury-keys-add)           | Add an encrypted private key (either newly generated or recovered), encrypt it, and save to disk |
+| [delete](#fury-keys-delete)     | Delete the given key                                                                             |
+| [export](#fury-keys-export)     | Export private keys                                                                              |
+| [import](#fury-keys-import)     | Import private keys into the local keybase                                                       |
+| [list](#fury-keys-list)         | List all keys                                                                                    |
+| [migrate](#fury-keys-migrate)   | Migrate keys from the legacy (db-based) Keybase                                                  |
+| [mnemonic](#fury-keys-mnemonic) | Compute the bip39 mnemonic for some input entropy                                                |
+| [parse](#fury-keys-parse)       | Parse address from hex to bech32 and vice versa                                                  |
+| [show](#fury-keys-show)         | Retrieve key information by name or address                                                      |
 
-## grid keys add
+## fury keys add
 
 Derive a new private key and encrypt to disk.
 
 ```bash
-grid keys add <key-name> [flags]
+fury keys add <key-name> [flags]
 ```
 
 **Flags:**
@@ -46,7 +46,7 @@ grid keys add <key-name> [flags]
 ### Create a new key
 
 ```bash
-grid keys add MyKey
+fury keys add MyKey
 ```
 
 Enter and repeat the password, at least 8 characters, then you will get a new key.
@@ -62,7 +62,7 @@ write the seed phrase in a safe place! It is the only way to recover your accoun
 If you forget your password or lose your key, or you wanna use your key in another place, you can recover your key by your seed phrase.
 
 ```bash
-grid keys add MyKey --recover
+fury keys add MyKey --recover
 ```
 
 You'll be asked to enter and repeat the new password for your key, and enter the seed phrase. Then you get your key back.
@@ -78,7 +78,7 @@ Enter your recovery seed phrase:
 The following example creates a multisig key with 3 sub-keys, and specify the minimum number of signatures as 2. The tx could be broadcast only when the number of signatures is greater than or equal to 2.
 
 ```bash
-grid keys add <multisig-keyname> --multisig-threshold=2 --multisig=<signer-keyname-1>,<signer-keyname-2>,<signer-keyname-3>
+fury keys add <multisig-keyname> --multisig-threshold=2 --multisig=<signer-keyname-1>,<signer-keyname-2>,<signer-keyname-3>
 ```
 
 :::tip
@@ -86,17 +86,17 @@ grid keys add <multisig-keyname> --multisig-threshold=2 --multisig=<signer-keyna
 
 If you don't have all the permission of sub-keys, you can ask for the pubkeys to create the offline keys first, then you will be able to create the multisig key.
 
-Offline key can be created by "grid keys add --pubkey".
+Offline key can be created by "fury keys add --pubkey".
 :::
 
-How to use multisig key to sign and broadcast a transaction,  please refer to [multisign](tx.md#grid-tx-multisign)
+How to use multisig key to sign and broadcast a transaction,  please refer to [multisign](tx.md#fury-tx-multisign)
 
-## grid keys delete
+## fury keys delete
 
 Delete a local key by the given name.
 
 ```bash
-grid keys delete <key-name> [flags]
+fury keys delete <key-name> [flags]
 ```
 
 **Flags:**
@@ -109,34 +109,34 @@ grid keys delete <key-name> [flags]
 ### Delete a local key
 
 ```bash
-grid keys delete MyKey
+fury keys delete MyKey
 ```
 
-## grid keys export
+## fury keys export
 
 Export the keystore of a key to a json file
 
 ```bash
-grid keys export <key-name> [flags]
+fury keys export <key-name> [flags]
 ```
 
 ### Export keystore
 
 ```bash
-grid keys export Mykey --output-file=<path-to-keystore>
+fury keys export Mykey --output-file=<path-to-keystore>
 ```
 
-## grid keys import
+## fury keys import
 
 Import a ASCII armored private key into the local keybase.
 
 ### Import a ASCII armored private key
 
 ```bash
-grid keys import <name> <keyfile> [flags]
+fury keys import <name> <keyfile> [flags]
 ```
 
-## grid keys list
+## fury keys list
 
 List all the keys stored by this key manager along with their associated name, type, address and pubkey.
 
@@ -149,10 +149,10 @@ List all the keys stored by this key manager along with their associated name, t
 ### List all keys
 
 ```bash
-grid keys list
+fury keys list
 ```
 
-## grid keys migrate
+## fury keys migrate
 
 Migrate key information from the legacy (db-based) Keybase to the new keyring-based Keybase.
 
@@ -165,15 +165,15 @@ Migrate key information from the legacy (db-based) Keybase to the new keyring-ba
 ### Migrate key information
 
 ```bash
-grid keys migrate [flags]
+fury keys migrate [flags]
 ```
 
-## grid keys mnemonic
+## fury keys mnemonic
 
 Create a bip39 mnemonic, sometimes called a seed phrase, by reading from the system entropy. To pass your own entropy, use `unsafe-entropy` mode.
 
 ```bash
-grid keys mnemonic [flags]
+fury keys mnemonic [flags]
 ```
 
 **Flags:**
@@ -185,7 +185,7 @@ grid keys mnemonic [flags]
 ### Create a bip39 mnemonic
 
 ```bash
-grid keys mnemonic
+fury keys mnemonic
 ```
 
 You'll get a bip39 mnemonic with 24 words, e.g.:
@@ -194,22 +194,22 @@ You'll get a bip39 mnemonic with 24 words, e.g.:
 beauty entire blue tape ordinary fix rotate learn smart tiger dolphin cycle cigar dish alcohol slab bachelor vital design consider paper panther mad eternal
 ```
 
-## grid keys parse
+## fury keys parse
 
 Convert and print to stdout key addresses and fingerprints from hexadecimal into bech32 cosmos prefixed format and vice versa.
 
 ### Convert and print to stdout key addresses and fingerprints
 
 ```bash
-grid keys parse <hex-or-bech32-address> [flags]
+fury keys parse <hex-or-bech32-address> [flags]
 ```
 
-## grid keys show
+## fury keys show
 
 Get details of a local key.
 
 ```bash
-grid keys show <key-name> [flags]
+fury keys show <key-name> [flags]
 ```
 
 **Flags:**
@@ -225,7 +225,7 @@ grid keys show <key-name> [flags]
 ### Get details of a local key
 
 ```bash
-grid keys show MyKey
+fury keys show MyKey
 ```
 
 The following infos will be shown:
@@ -233,7 +233,7 @@ The following infos will be shown:
 ```bash
 - name: Mykey
   type: local
-  address: fury:grid:aa1tulwx2hwz4dv8te6cflhda64dn0984harlzegw
+  address: fury:fury:aa1tulwx2hwz4dv8te6cflhda64dn0984harlzegw
   pubkey: iap1addwnpepq24rufap6u0sysqcpgsfzqhw3x8nfkhqhtmpgqt0369rlyqcg0vkgwzc4k0
   mnemonic: ""
   threshold: 0
@@ -245,7 +245,7 @@ The following infos will be shown:
 If an address has been bonded to be a validator operator (which the address you used to create a validator), then you can use `--bech val` to get the operator's address prefixed by `iva` and the pubkey prefixed by `ivp`:
 
 ```bash
-grid keys show MyKey --bech val
+fury keys show MyKey --bech val
 ```
 
 Example Output:

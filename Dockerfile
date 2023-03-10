@@ -1,12 +1,12 @@
 #
-# Build image: docker build -t gridiron-zone/gridiron .
+# Build image: docker build -t gridiron-zone/fury .
 #
 FROM golang:1.18-alpine3.16 as builder
 
 # Set up dependencies
 ENV PACKAGES make gcc git libc-dev bash linux-headers eudev-dev
 
-WORKDIR /gridiron
+WORKDIR /fury
 
 # Add source files
 COPY . .
@@ -27,4 +27,4 @@ EXPOSE 26657
 # metrics port
 EXPOSE 26660
 
-COPY --from=builder /gridiron/build/ /usr/local/bin/
+COPY --from=builder /fury/build/ /usr/local/bin/

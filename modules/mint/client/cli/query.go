@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/gridiron-zone/gridiron/modules/mint/types"
+	"github.com/gridiron-zone/fury/modules/mint/types"
 )
 
 // GetQueryCmd returns the cli query commands for the mint module.

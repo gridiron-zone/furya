@@ -4,8 +4,8 @@ order: 4
 
 # Genesis File
 
-The Genesis file (~/.grid/config/genesis.json) is the basis for the entire network initialization, which contains most info for creating a Genesis block (such as ChainID, consensus params, app state, initial account balances, parameters for each module, and validators info).
-The genesis file sets the initial parameters of any new GRID network. Establishing a robust social consensus over the genesis file is critical to start a network.
+The Genesis file (~/.fury/config/genesis.json) is the basis for the entire network initialization, which contains most info for creating a Genesis block (such as ChainID, consensus params, app state, initial account balances, parameters for each module, and validators info).
+The genesis file sets the initial parameters of any new FURY network. Establishing a robust social consensus over the genesis file is critical to start a network.
 
 Each genesis state starts with a list of account balances. Social consensus on these account balances must be bootstrapped from some external process be it events on another blockchain to a token generation event.
 

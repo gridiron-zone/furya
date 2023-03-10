@@ -121,8 +121,8 @@ func (m *QueryParamsResponse) GetRes() *query.PageResponse {
 }
 
 func init() {
-	proto.RegisterType((*QueryParamsRequest)(nil), "gridiron.mint.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "gridiron.mint.QueryParamsResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "fury.mint.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "fury.mint.QueryParamsResponse")
 }
 
 func init() { proto.RegisterFile("mint/query.proto", fileDescriptor_3082aecef156f565) }
@@ -178,7 +178,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error) {
 	out := new(QueryParamsResponse)
-	err := c.cc.Invoke(ctx, "/gridiron.mint.Query/Params", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/fury.mint.Query/Params", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -213,7 +213,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/gridiron.mint.Query/Params",
+		FullMethod: "/fury.mint.Query/Params",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Params(ctx, req.(*QueryParamsRequest))
@@ -222,7 +222,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "gridiron.mint.Query",
+	ServiceName: "fury.mint.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

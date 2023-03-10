@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "grid-service-pricing",
-    "description": "GRID Service Pricing Schema",
+    "title": "fury-service-pricing",
+    "description": "FURY Service Pricing Schema",
     "type": "object",
     "definitions": {
         "discount": {

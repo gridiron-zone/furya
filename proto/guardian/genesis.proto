@@ -1,10 +1,10 @@
 syntax = "proto3";
-package gridiron.guardian;
+package fury.guardian;
 
 import "guardian/guardian.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/gridiron-zone/gridiron/modules/guardian/types";
+option go_package = "github.com/gridiron-zone/fury/modules/guardian/types";
 
 // GenesisState defines the guardian module's genesis state
 message GenesisState {

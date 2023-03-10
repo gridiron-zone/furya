@@ -12,16 +12,16 @@ There are the following states involved in the lifecycle of an HTLC:
 
 | Name                           | Description              |
 | ------------------------------ | ------------------------ |
-| [create](#grid-tx-htlc-create) | Create an HTLC           |
-| [claim](#grid-tx-htlc-claim)   | Claim an opened HTLC     |
-| [htlc](#grid-query-htlc-htlc)  | Query details of an HTLC |
+| [create](#fury-tx-htlc-create) | Create an HTLC           |
+| [claim](#fury-tx-htlc-claim)   | Claim an opened HTLC     |
+| [htlc](#fury-query-htlc-htlc)  | Query details of an HTLC |
 
-## grid tx htlc create
+## fury tx htlc create
 
 Create an HTLC
 
 ```bash
-grid tx htlc create \
+fury tx htlc create \
     --to=<recipient> \
     --receiver-on-other-chain=<receiver-on-other-chain> \
     --sender-on-other-chain=<sender-on-other-chain> \
@@ -48,42 +48,42 @@ grid tx htlc create \
 | --timestamp               | uint   |          |         | The timestamp in seconds for generating hash lock if provided                                         |
 | --transfer                | bool   |          | false   | Whether it is an HTLT transaction                                                                     |
 
-## grid tx htlc claim
+## fury tx htlc claim
 
 Claim an opened HTLC
 
 ```bash
-grid tx htlc claim [id] [secret] [flags] --from=mykey
+fury tx htlc claim [id] [secret] [flags] --from=mykey
 ```
 
-## grid query htlc htlc
+## fury query htlc htlc
 
 Query details of an HTLC
 
 ```bash
-grid query htlc htlc <id>
+fury query htlc htlc <id>
 ```
 
-## grid query htlc params
+## fury query htlc params
 
 Query params of HTLC module
 
 ```bash
-grid query htlc params
+fury query htlc params
 ```
 
-## grid query htlc supplies
+## fury query htlc supplies
 
 Query supplies of all HTLT assets
 
 ```bash
-grid query htlc supplies
+fury query htlc supplies
 ```
 
-## grid query htlc supply
+## fury query htlc supply
 
 Query supply of an HTLT asset
 
 ```bash
-grid query htlc supply [denom]
+fury query htlc supply [denom]
 ```

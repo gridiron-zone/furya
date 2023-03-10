@@ -1,25 +1,25 @@
 # Oracle
 
-Oracle module allows you to manage the feed on GRID Hub
+Oracle module allows you to manage the feed on FURY Hub
 
 ## Available Commands
 
 | Name                              | Description                                                                          |
 | --------------------------------- | ------------------------------------------------------------------------------------ |
-| [create](#grid-tx-oracle-create)  | Create a new feed, the feed will be in "paused" state                                |
-| [start](#grid-tx-oracle-start)    | Start a feed in "paused" state                                                       |
-| [pause](#grid-tx-oracle-pause)    | Pause a feed in "running" state                                                      |
-| [edit](#grid-tx-oracle-edit)      | Modify the feed information and update service invocation parameters by feed creator |
-| [feed](#grid-query-oracle-feed)   | Query the feed definition                                                            |
-| [feeds](#grid-query-oracle-feeds) | Query a group of feed definition                                                     |
-| [value](#grid-query-oracle-value) | Query the feed result                                                                |
+| [create](#fury-tx-oracle-create)  | Create a new feed, the feed will be in "paused" state                                |
+| [start](#fury-tx-oracle-start)    | Start a feed in "paused" state                                                       |
+| [pause](#fury-tx-oracle-pause)    | Pause a feed in "running" state                                                      |
+| [edit](#fury-tx-oracle-edit)      | Modify the feed information and update service invocation parameters by feed creator |
+| [feed](#fury-query-oracle-feed)   | Query the feed definition                                                            |
+| [feeds](#fury-query-oracle-feeds) | Query a group of feed definition                                                     |
+| [value](#fury-query-oracle-value) | Query the feed result                                                                |
 
-## grid tx oracle create
+## fury tx oracle create
 
 This command is used to create a new feed, the feed will be in "paused" state.
 
 ```bash
-grid tx oracle create [flags]
+fury tx oracle create [flags]
 ```
 
 **Flags:**
@@ -42,7 +42,7 @@ grid tx oracle create [flags]
 ### Create a new feed
 
 ```bash
-grid tx oracle create \
+fury tx oracle create \
     --feed-name="test-feed" \
     --latest-history=10 \
     --service-name="test-service" \
@@ -55,45 +55,45 @@ grid tx oracle create \
     --threshold=1 \
     --aggregate-func="avg" \
     --value-json-path="high" \
-    --chain-id=gridiron \
+    --chain-id=fury \
     --from=node0 \
     --fees=0.3grid
 ```
 
-## grid tx oracle start
+## fury tx oracle start
 
 This command is used to start a feed in "paused" state
 
 ```bash
-grid tx oracle start [feed-name] [flags]
+fury tx oracle start [feed-name] [flags]
 ```
 
 ### Start a "paused" feed
 
 ```bash
-grid tx oracle start test-feed --chain-id=gridiron --from=node0 --fees=0.3grid
+fury tx oracle start test-feed --chain-id=fury --from=node0 --fees=0.3grid
 ```
 
-## grid tx oracle pause
+## fury tx oracle pause
 
 This command is used to pause a feed in "running" state
 
 ```bash
-grid tx oracle pause [feed-name] [flags]
+fury tx oracle pause [feed-name] [flags]
 ```
 
 ### Pause a "running" feed
 
 ```bash
-grid tx oracle pause test-feed --chain-id=gridiron --from=node0 --fees=0.3grid
+fury tx oracle pause test-feed --chain-id=fury --from=node0 --fees=0.3grid
 ```
 
-## grid tx oracle edit
+## fury tx oracle edit
 
-This command is used to edit an existing feed on GRID Hub.
+This command is used to edit an existing feed on FURY Hub.
 
 ```bash
-grid tx oracle edit [feed-name] [flags]
+fury tx oracle edit [feed-name] [flags]
 ```
 
 **Flags:**
@@ -112,29 +112,29 @@ grid tx oracle edit [feed-name] [flags]
 ### Edit an existed feed
 
 ```bash
-grid tx oracle edit test-feed --chain-id=gridiron --from=node0 --fees=0.3grid --latest-history=5
+fury tx oracle edit test-feed --chain-id=fury --from=node0 --fees=0.3grid --latest-history=5
 ```
 
-## grid query oracle feed
+## fury query oracle feed
 
 This command is used to query a feed
 
 ```bash
-grid query oracle feed [feed-name] [flags]
+fury query oracle feed [feed-name] [flags]
 ```
 
 ### Query an existed feed
 
 ```bash
-grid query oracle feed test-feed
+fury query oracle feed test-feed
 ```
 
-## grid query oracle feeds
+## fury query oracle feeds
 
 This command is used to query a group of feed
 
 ```bash
-grid query oracle feeds [flags]
+fury query oracle feeds [flags]
 ```
 
 **Flags:**
@@ -146,13 +146,13 @@ grid query oracle feeds [flags]
 ### Query a group of feed
 
 ```bash
-grid query oracle feeds --state=running
+fury query oracle feeds --state=running
 ```
 
-## grid query oracle value
+## fury query oracle value
 
 This command is used to query the result of a specified feed
 
 ```bash
-grid query oracle value test-feed
+fury query oracle value test-feed
 ```

@@ -1,4 +1,4 @@
-module github.com/gridiron-zone/gridiron
+module github.com/gridiron-zone/fury
 
 go 1.18
 

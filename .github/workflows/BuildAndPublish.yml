@@ -17,7 +17,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=gridiron-zone/gridiron
+          DOCKER_IMAGE=gridiron-zone/fury
           VERSION=noop
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
@@ -53,9 +53,9 @@ jobs:
           tags: ${{ steps.prep.outputs.tags }}
           platforms: linux/amd64,linux/arm64
           
-#       - name: Build gridiron image
-#         run: source ~/.bashrc; sudo docker build -t furygridiron/gridiron:latest .
+#       - name: Build fury image
+#         run: source ~/.bashrc; sudo docker build -t furygridiron/fury:latest .
 #       - name: Login dockerhub
 #         run: sudo docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASS}}
-#       - name: Publish gridiron image
-#         run: sudo docker push furygridiron/gridiron:latest
+#       - name: Publish fury image
+#         run: sudo docker push furygridiron/fury:latest

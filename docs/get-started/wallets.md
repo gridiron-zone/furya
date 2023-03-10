@@ -4,7 +4,7 @@ order: 5
 
 # GRIDhub Wallets
 
-These web and mobile wallets allow you to store & transfer GRID, delegate GRID to validators, and some of them also support ATOM. Note that we do not endorse any of the wallets, they are listed for your convenience.
+These web and mobile wallets allow you to store & transfer FURY, delegate FURY to validators, and some of them also support ATOM. Note that we do not endorse any of the wallets, they are listed for your convenience.
 
 - [Rainbow](https://www.rainbow.one/) (Android，iOS)
 - [Math Wallet](http://www.mathwallet.org/en/) (Android，iOS)

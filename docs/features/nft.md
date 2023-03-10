@@ -6,7 +6,7 @@
 
 nft on the chain are identified by `ID`. With the help of the secure and non-tamperable features of the blockchain, the ownership of nft will be clarified. The transaction process of nft among members will also be publicly recorded to facilitate traceability and dispute settlement.
 
-nft metadata (`metadata`) can be stored directly on the chain, or the `URI` of its storage source outside the chain can be stored on the chain. nft metadata is organized according to a specific [JSON Schema](https://JSON-Schema.org/). [Here](https://github.com/gridiron-zone/gridiron/blob/master/docs/features/nft-metadata.json) is an example of metadata JSON Schema.
+nft metadata (`metadata`) can be stored directly on the chain, or the `URI` of its storage source outside the chain can be stored on the chain. nft metadata is organized according to a specific [JSON Schema](https://JSON-Schema.org/). [Here](https://github.com/gridiron-zone/fury/blob/master/docs/features/nft-metadata.json) is an example of metadata JSON Schema.
 
 nft need to be issued before creation to declare their abstract properties:
 
@@ -41,7 +41,7 @@ Specify the nft Denom (nft classification) and metadata JSON Schema to issue nft
 `CLI`
 
 ```bash
-grid tx nft issue <denom-id> --from=<key-name> --name=<denom-name> --schema=<schema-content or path/to/schema.json> --symbol=<denom-symbol> --mint-restricted=<mint-restricted>  --update-restricted=<update-restricted> --chain-id=<chain-id> --fees=<fee>
+fury tx nft issue <denom-id> --from=<key-name> --name=<denom-name> --schema=<schema-content or path/to/schema.json> --symbol=<denom-symbol> --mint-restricted=<mint-restricted>  --update-restricted=<update-restricted> --chain-id=<chain-id> --fees=<fee>
 ```
 
 ### transfer denom
@@ -51,7 +51,7 @@ The owner of the NFT classification can transfer the ownership of the NFT classi
 `CLI`
 
 ```bash
-grid tx nft transfer-denom <recipient> <denom-id>
+fury tx nft transfer-denom <recipient> <denom-id>
 ```
 
 ### Additional issuance
@@ -61,7 +61,7 @@ After the nft is issued, additional issuance (create) of specific nft of this ty
 `CLI`
 
 ```bash
-grid tx nft mint <denom-id> <token-id> --uri=<uri> --recipient=<recipient> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx nft mint <denom-id> <token-id> --uri=<uri> --recipient=<recipient> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
 ### Edit
@@ -71,7 +71,7 @@ The metadata of the specified nft can be updated.
 `CLI`
 
 ```bash
-grid tx nft edit <denom-id> <token-id> --uri=<uri> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx nft edit <denom-id> <token-id> --uri=<uri> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
 ### Transfer
@@ -81,7 +81,7 @@ Transfer designated nft.
 `CLI`
 
 ```bash
-grid tx nft transfer <recipient-address> <denom-id> <token-id>
+fury tx nft transfer <recipient-address> <denom-id> <token-id>
 ```
 
 ### Destroy
@@ -91,7 +91,7 @@ You can destroy the created nft.
 `CLI`
 
 ```bash
-grid tx nft burn <denom-id> <token-id> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
+fury tx nft burn <denom-id> <token-id> --from=<key-name> --chain-id=<chain-id> --fees=<fee>
 ```
 
 ### Query the specified nft denom
@@ -101,7 +101,7 @@ Query nft denom information based on Denom ID.
 `CLI`
 
 ```bash
-grid q nft denom <denom-id>
+fury q nft denom <denom-id>
 ```
 
 ### Query all nft denom information
@@ -111,7 +111,7 @@ Query all issued nft denom information.
 `CLI`
 
 ```bash
-grid q nft denoms
+fury q nft denoms
 ```
 
 ### Query the total amount of nft in a specified denom
@@ -121,7 +121,7 @@ Query the total amount of nft according to Denom ID; accept the optional owner p
 `CLI`
 
 ```bash
-grid q nft supply <denom-id> --owner=<owner>
+fury q nft supply <denom-id> --owner=<owner>
 ```
 
 ### Query all nft of the specified account
@@ -131,7 +131,7 @@ Query all nft owned by an account; you can specify the Denom ID parameter.
 `CLI`
 
 ```bash
-grid q nft owner <address> --denom-id=<denom-id>
+fury q nft owner <address> --denom-id=<denom-id>
 ```
 
 ### Query all nft of a specified denom
@@ -141,7 +141,7 @@ Query all nft according to Denom ID.
 `CLI`
 
 ```bash
-grid q nft collection <denom-id>
+fury q nft collection <denom-id>
 ```
 
 ### Query specified nft
@@ -151,5 +151,5 @@ Query specific nft based on Denom ID and Token ID.
 `CLI`
 
 ```bash
-grid q nft token <denom-id> <token-id>
+fury q nft token <denom-id> <token-id>
 ```

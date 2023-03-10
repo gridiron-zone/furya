@@ -52,8 +52,8 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=grid \
-		  -X github.com/cosmos/cosmos-sdk/version.AppName=grid \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=fury \
+		  -X github.com/cosmos/cosmos-sdk/version.AppName=fury \
 		  -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
 		  -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
 		  -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)"
@@ -74,18 +74,18 @@ all: tools install lint
 
 build: go.sum
 ifeq ($(OS),Windows_NT)
-	go build $(BUILD_FLAGS) -o build/grid.exe ./cmd/grid
+	go build $(BUILD_FLAGS) -o build/fury.exe ./cmd/fury
 else
-	go build $(BUILD_FLAGS) -o build/grid ./cmd/grid
+	go build $(BUILD_FLAGS) -o build/fury ./cmd/fury
 endif
 
 build-linux: go.sum
 	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 $(MAKE) build
 
 build-all-binary: go.sum
-	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/grid-linux-amd64 ./cmd/grid
-	LEDGER_ENABLED=false GOOS=linux GOARCH=arm64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/grid-linux-arm64 ./cmd/grid
-	LEDGER_ENABLED=false GOOS=windows GOARCH=amd64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/grid-windows-amd64.exe ./cmd/grid
+	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/fury-linux-amd64 ./cmd/fury
+	LEDGER_ENABLED=false GOOS=linux GOARCH=arm64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/fury-linux-arm64 ./cmd/fury
+	LEDGER_ENABLED=false GOOS=windows GOARCH=amd64 go build $(BUILD_FLAGS) CGO_ENABLED=1 -o build/fury-windows-amd64.exe ./cmd/fury
 
 build-contract-tests-hooks:
 ifeq ($(OS),Windows_NT)
@@ -95,7 +95,7 @@ else
 endif
 
 install: go.sum
-	go install $(BUILD_FLAGS) ./cmd/grid
+	go install $(BUILD_FLAGS) ./cmd/fury
 
 
 
@@ -113,7 +113,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go get github.com/RobotsAndPencils/goviz
-	@goviz -i ./cmd/grid -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i ./cmd/fury -d 2 | dot -Tpng -o dependency-graph.png
 
 clean:
 	rm -rf snapcraft-local.yaml build/ tmp-swagger-gen/
@@ -155,7 +155,7 @@ test-cover:
 format:
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./lite/statik/statik.go" -not -path "*.pb.go" | xargs gofmt -w -s
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./lite/statik/statik.go" -not -path "*.pb.go" | xargs misspell -w
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./lite/statik/statik.go" -not -path "*.pb.go" | xargs goimports -w -local github.com/gridiron-zone/gridiron
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./lite/statik/statik.go" -not -path "*.pb.go" | xargs goimports -w -local github.com/gridiron-zone/fury
 
 benchmark:
 	@go test -mod=readonly -bench=. ./...
@@ -165,17 +165,17 @@ benchmark:
 ### Local validator nodes using docker and docker-compose
 
 testnet-init:
-	@if ! [ -f build/nodecluster/node0/grid/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/home fanfury/fanfury:latest grid testnet --v 4 --output-dir /home/nodecluster --chain-id gridstaging-1000 --keyring-backend test --starting-ip-address 192.168.10.2 ; fi
+	@if ! [ -f build/nodecluster/node0/fury/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/home fanfury/fanfury:latest fury testnet --v 4 --output-dir /home/nodecluster --chain-id gridstaging-1000 --keyring-backend test --starting-ip-address 192.168.10.2 ; fi
 	@echo "To install jq command, please refer to this page: https://stedolan.github.io/jq/download/"
-	@jq '.app_state.auth.accounts+= [{"@type":"/cosmos.auth.v1beta1.BaseAccount","address":"fury:grid:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx","pub_key":null,"account_number":"0","sequence":"0"}] | .app_state.bank.balances+= [{"address":"fury:grid:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx","coins":[{"denom":"ugrid","amount":"1000000000000"}]}]' build/nodecluster/node0/grid/config/genesis.json > build/genesis_temp.json ;
-	@sudo cp build/genesis_temp.json build/nodecluster/node0/grid/config/genesis.json
-	@sudo cp build/genesis_temp.json build/nodecluster/node1/grid/config/genesis.json
-	@sudo cp build/genesis_temp.json build/nodecluster/node2/grid/config/genesis.json
-	@sudo cp build/genesis_temp.json build/nodecluster/node3/grid/config/genesis.json
+	@jq '.app_state.auth.accounts+= [{"@type":"/cosmos.auth.v1beta1.BaseAccount","address":"fury:fury:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx","pub_key":null,"account_number":"0","sequence":"0"}] | .app_state.bank.balances+= [{"address":"fury:fury:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx","coins":[{"denom":"ufury","amount":"1000000000000"}]}]' build/nodecluster/node0/fury/config/genesis.json > build/genesis_temp.json ;
+	@sudo cp build/genesis_temp.json build/nodecluster/node0/fury/config/genesis.json
+	@sudo cp build/genesis_temp.json build/nodecluster/node1/fury/config/genesis.json
+	@sudo cp build/genesis_temp.json build/nodecluster/node2/fury/config/genesis.json
+	@sudo cp build/genesis_temp.json build/nodecluster/node3/fury/config/genesis.json
 	@rm build/genesis_temp.json
-	@echo "Faucet address: fury:grid:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx" ;
+	@echo "Faucet address: fury:fury:aa1ljemm0yznz58qxxs8xyak7fashcfxf5lgl4zjx" ;
 	@echo "Faucet coin amount: 1000000000000ugrid"
-	@echo "Faucet key seed: tube lonely pause spring gym veteran know want grid tired taxi such same mesh charge orient bracket ozone concert once good quick dry boss"
+	@echo "Faucet key seed: tube lonely pause spring gym veteran know want fury tired taxi such same mesh charge orient bracket ozone concert once good quick dry boss"
 
 testnet-start:
 	docker-compose up -d
@@ -196,8 +196,8 @@ testnet-clean:
 # tendermintdev one uses 1.18.
 protoVer=v0.8
 protoImageName=osmolabs/osmo-proto-gen:$(protoVer)
-containerProtoGenGo=grid-proto-gen-go-$(protoVer)
-containerProtoGenSwagger=grid-proto-gen-swagger-$(protoVer)
+containerProtoGenGo=fury-proto-gen-go-$(protoVer)
+containerProtoGenSwagger=fury-proto-gen-swagger-$(protoVer)
 
 proto-gen: proto-go-gen proto-swagger-gen
 

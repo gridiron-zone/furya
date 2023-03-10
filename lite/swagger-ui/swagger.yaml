@@ -37327,7 +37327,7 @@ paths:
           type: string
       tags:
         - Query
-  /gridiron/mint/params:
+  /fury/mint/params:
     get:
       summary: Params queries the mint parameters
       operationId: MintParams
@@ -37402,7 +37402,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /gridiron/guardian/supers:
+  /fury/guardian/supers:
     get:
       summary: Supers returns all Supers
       operationId: Supers
@@ -74342,7 +74342,7 @@ definitions:
       creator:
         type: string
     title: Record defines the record standard
-  gridiron.mint.Params:
+  fury.mint.Params:
     type: object
     properties:
       mint_denom:
@@ -74352,7 +74352,7 @@ definitions:
         type: string
         title: inflation rate
     title: Params defines mint module's parameters
-  gridiron.mint.QueryParamsResponse:
+  fury.mint.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -74392,7 +74392,7 @@ definitions:
                    PageResponse page = 2;
            }
     title: QueryParamsResponse is response type for the Query/Parameters RPC method
-  gridiron.guardian.AccountType:
+  fury.guardian.AccountType:
     type: string
     enum:
       - GENESIS
@@ -74402,7 +74402,7 @@ definitions:
       - GENESIS: GENESIS defines a genesis account type
        - ORDINARY: ORDINARY defines a ordinary account type
     title: AccountType defines the super account type
-  gridiron.guardian.QuerySupersResponse:
+  fury.guardian.QuerySupersResponse:
     type: object
     properties:
       supers:
@@ -74454,7 +74454,7 @@ definitions:
                    PageResponse page = 2;
            }
     title: QuerySupersResponse is response type for the Query/Supers RPC method
-  gridiron.guardian.Super:
+  fury.guardian.Super:
     type: object
     properties:
       description:

@@ -124,16 +124,16 @@ import (
 	tokenkeeper "github.com/irisnet/irismod/modules/token/keeper"
 	tokentypes "github.com/irisnet/irismod/modules/token/types"
 
-	"github.com/gridiron-zone/gridiron/address"
-	gridironante "github.com/gridiron-zone/gridiron/ante"
-	gridappparams "github.com/gridiron-zone/gridiron/app/params"
-	"github.com/gridiron-zone/gridiron/lite"
-	"github.com/gridiron-zone/gridiron/modules/guardian"
-	guardiankeeper "github.com/gridiron-zone/gridiron/modules/guardian/keeper"
-	guardiantypes "github.com/gridiron-zone/gridiron/modules/guardian/types"
-	"github.com/gridiron-zone/gridiron/modules/mint"
-	mintkeeper "github.com/gridiron-zone/gridiron/modules/mint/keeper"
-	minttypes "github.com/gridiron-zone/gridiron/modules/mint/types"
+	"github.com/gridiron-zone/fury/address"
+	gridironante "github.com/gridiron-zone/fury/ante"
+	gridappparams "github.com/gridiron-zone/fury/app/params"
+	"github.com/gridiron-zone/fury/lite"
+	"github.com/gridiron-zone/fury/modules/guardian"
+	guardiankeeper "github.com/gridiron-zone/fury/modules/guardian/keeper"
+	guardiantypes "github.com/gridiron-zone/fury/modules/guardian/types"
+	"github.com/gridiron-zone/fury/modules/mint"
+	mintkeeper "github.com/gridiron-zone/fury/modules/mint/keeper"
+	minttypes "github.com/gridiron-zone/fury/modules/mint/types"
 
 	"github.com/irisnet/irismod/modules/farm"
 	farmkeeper "github.com/irisnet/irismod/modules/farm/keeper"
@@ -325,10 +325,10 @@ func init() {
 	sdk.SetCoinDenomRegex(DefaultCoinDenomRegex)
 
 	nativeToken = tokentypes.Token{
-		Symbol:        "grid",
+		Symbol:        "fury",
 		Name:          "Gridiron staking token",
 		Scale:         6,
-		MinUnit:       "ugrid",
+		MinUnit:       "ufury",
 		InitialSupply: 2000000000,
 		MaxSupply:     10000000000,
 		Mintable:      true,
@@ -340,7 +340,7 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".grid")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".fury")
 	owner, err := sdk.AccAddressFromBech32(nativeToken.Owner)
 	if err != nil {
 		panic(err)

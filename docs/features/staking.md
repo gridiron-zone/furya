@@ -20,7 +20,7 @@ People that cannot, or do not want to run validator nodes, can still participate
 
 :::danger
 **It is strongly NOT recommended that validator operator COMPLETELY unbind self-delegation tokens, Cause the validator will be jailed (removed out of validator set) if he do so. The delegator who bonded tokens to this validator will also suffer losses.
-So, it is recommended that validator operator reserve at least 1 grid while unbonding tokens.**
+So, it is recommended that validator operator reserve at least 1 fury while unbonding tokens.**
 :::
 
 ### Validator Candidates
@@ -50,7 +50,7 @@ As a delegator, the more bonded tokens it has on validator, the more rewards it 
   Users can query their own validators by their wallet address. But firstly users have to convert their wallet addresses to validator operator address pattern:
 
 ```bash
-grid keys show <key-name>
+fury keys show <key-name>
 ```
 
 Example Output:
@@ -58,7 +58,7 @@ Example Output:
 ```bash
 - name: node0
     type: local
-    address: fury:grid:aa1w9lvhwlvkwqvg08q84n2k4nn896u9pqx93velx
+    address: fury:fury:aa1w9lvhwlvkwqvg08q84n2k4nn896u9pqx93velx
     pubkey: iap1addwnpepq03g7u43y3gwfz3pd4gkwz7d4mt600kzsc5cj2ysx58a5hp84qyduxtw28r
     mnemonic: ""
     threshold: 0
@@ -68,7 +68,7 @@ Example Output:
 Then, example command to query validator:
 
 ```bash
-grid q staking validator iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke
+fury q staking validator iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke
 ```
 
 Example Output:
@@ -99,26 +99,26 @@ Example Output:
 - Edit validator
 
 ```bash
-grid tx staking edit-validator --from=<key-name> --chain-id=gridiron --fees=0.3grid --commission-rate=0.15 --moniker=<new-name>
+fury tx staking edit-validator --from=<key-name> --chain-id=fury --fees=0.3grid --commission-rate=0.15 --moniker=<new-name>
 ```
 
 - Delegate tokens to other validators
 If you just want to be a delegator, you can skip the above steps.
 
 ```bash
-grid tx staking delegate iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke 1000grid --chain-id=gridiron --from=<key-name> --fees=0.3grid
+fury tx staking delegate iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke 1000grid --chain-id=fury --from=<key-name> --fees=0.3grid
 ```
 
 - Unbond tokens from a validator
 
 ```bash
-grid tx staking unbond iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke 1000grid --chain-id=gridiron --from=<key-name> --fees=0.3grid
+fury tx staking unbond iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke 1000grid --chain-id=fury --from=<key-name> --fees=0.3grid
 ```
   
 - Redelegate tokens to another validator
 
 ```bash
-grid tx staking redelegate iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke iva1l2rsakp388kuv9k8qzq6lrm9taddae7fpx59wm 100grid --from mykey --chain-id=gridiron --from=<key-name> --fees=0.3grid
+fury tx staking redelegate iva14n9md3sq9xwscs96za8n85m0j9y2yu3cagxgke iva1l2rsakp388kuv9k8qzq6lrm9taddae7fpx59wm 100grid --from mykey --chain-id=fury --from=<key-name> --fees=0.3grid
 ```
 
 For other staking commands, please refer to [stake cli client](../cli-client/staking.md)

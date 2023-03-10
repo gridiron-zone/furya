@@ -6,181 +6,181 @@ Staking module provides a set of subcommands to query staking state and send sta
 
 | Name                                                                         | Description                                                                                   |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [validator](#grid-query-staking-validator)                                   | Query a validator                                                                             |
-| [validators](#grid-query-staking-validators)                                 | Query for all validators                                                                      |
-| [delegation](#grid-query-staking-delegation)                                 | Query a delegation based on address and validator address                                     |
-| [delegations](#grid-query-staking-delegations)                               | Query all delegations made from one delegator                                                 |
-| [delegations-to](#grid-query-staking-delegations-to)                         | Query all delegations to one validator                                                        |
-| [unbonding-delegation](#grid-query-staking-unbonding-delegation)             | Query an unbonding-delegation record based on delegator and validator address                 |
-| [unbonding-delegations](#grid-query-staking-unbonding-delegations)           | Query all unbonding-delegations records for one delegator                                     |
-| [unbonding-delegations-from](#grid-query-staking-unbonding-delegations-from) | Query all unbonding delegatations from a validator                                            |
-| [redelegations-from](#grid-query-staking-redelegations-from)                 | Query all outgoing redelegatations from a validator                                           |
-| [redelegation](#grid-query-staking-redelegation)                             | Query a redelegation record based on delegator and a source and destination validator address |
-| [redelegations](#grid-query-staking-redelegations)                           | Query all redelegations records for one delegator                                             |
-| [pool](#grid-query-staking-pool)                                             | Query the current staking pool values                                                         |
-| [params](#grid-query-staking-params)                                         | Query the current staking parameters information                                              |
-| [historical-info](#grid-query-staking-historical-info)                       | Query historical info at given height                                                         |
-| [create-validator](#grid-tx-staking-create-validator)                        | Create new validator initialized with a self-delegation to it                                 |
-| [edit-validator](#grid-tx-staking-edit-validator)                            | Edit existing validator account                                                               |
-| [delegate](#grid-tx-staking-delegate)                                        | Delegate liquid tokens to an validator                                                        |
-| [unbond](#grid-tx-staking-unbond)                                            | Unbond shares from a validator                                                                |
-| [redelegate](#grid-tx-staking-redelegate)                                    | Redelegate illiquid tokens from one validator to another                                      |
+| [validator](#fury-query-staking-validator)                                   | Query a validator                                                                             |
+| [validators](#fury-query-staking-validators)                                 | Query for all validators                                                                      |
+| [delegation](#fury-query-staking-delegation)                                 | Query a delegation based on address and validator address                                     |
+| [delegations](#fury-query-staking-delegations)                               | Query all delegations made from one delegator                                                 |
+| [delegations-to](#fury-query-staking-delegations-to)                         | Query all delegations to one validator                                                        |
+| [unbonding-delegation](#fury-query-staking-unbonding-delegation)             | Query an unbonding-delegation record based on delegator and validator address                 |
+| [unbonding-delegations](#fury-query-staking-unbonding-delegations)           | Query all unbonding-delegations records for one delegator                                     |
+| [unbonding-delegations-from](#fury-query-staking-unbonding-delegations-from) | Query all unbonding delegatations from a validator                                            |
+| [redelegations-from](#fury-query-staking-redelegations-from)                 | Query all outgoing redelegatations from a validator                                           |
+| [redelegation](#fury-query-staking-redelegation)                             | Query a redelegation record based on delegator and a source and destination validator address |
+| [redelegations](#fury-query-staking-redelegations)                           | Query all redelegations records for one delegator                                             |
+| [pool](#fury-query-staking-pool)                                             | Query the current staking pool values                                                         |
+| [params](#fury-query-staking-params)                                         | Query the current staking parameters information                                              |
+| [historical-info](#fury-query-staking-historical-info)                       | Query historical info at given height                                                         |
+| [create-validator](#fury-tx-staking-create-validator)                        | Create new validator initialized with a self-delegation to it                                 |
+| [edit-validator](#fury-tx-staking-edit-validator)                            | Edit existing validator account                                                               |
+| [delegate](#fury-tx-staking-delegate)                                        | Delegate liquid tokens to an validator                                                        |
+| [unbond](#fury-tx-staking-unbond)                                            | Unbond shares from a validator                                                                |
+| [redelegate](#fury-tx-staking-redelegate)                                    | Redelegate illiquid tokens from one validator to another                                      |
 
-## grid query staking validator
+## fury query staking validator
 
 ### Query a validator by validator address
 
 ```bash
-grid query staking validator <iva...>
+fury query staking validator <iva...>
 ```
 
-## grid query staking validators
+## fury query staking validators
 
 ### Query all validators
 
 ```bash
-grid query staking validators
+fury query staking validators
 ```
 
-## grid query staking delegation
+## fury query staking delegation
 
 Query a delegation based on delegator address and validator address.
 
 ```bash
-grid query staking delegation [delegator-addr] [validator-addr]
+fury query staking delegation [delegator-addr] [validator-addr]
 ```
 
 ### Query a delegation
 
 ```bash
-grid query staking delegation <did:fury:aa...> <iva...>
+fury query staking delegation <did:fury:aa...> <iva...>
 ```
 
 Example Output:
 
 ```bash
 Delegation:
-  Delegator:  fury:grid:aa13lcwnxpyn2ea3skzmek64vvnp97jsk8qrcezvm
+  Delegator:  fury:fury:aa13lcwnxpyn2ea3skzmek64vvnp97jsk8qrcezvm
   Validator:  iva15grv3xg3ekxh9xrf79zd0w077krgv5xfzzunhs
   Shares:     1.0000000000000000000000000000
   Height:     26
 ```
 
-## grid query staking delegations
+## fury query staking delegations
 
 Query all delegations delegated from one delegator.
 
 ```bash
-grid query staking delegations [delegator-address] [flags]
+fury query staking delegations [delegator-address] [flags]
 ```
 
 ### Query all delegations of a delegator
 
 ```bash
-grid query staking delegations <did:fury:aa...>
+fury query staking delegations <did:fury:aa...>
 ```
 
-## grid query staking delegations-to
+## fury query staking delegations-to
 
 Query all delegations to one validator.
 
 ```bash
-grid query staking delegations-to [validator-address] [flags]
+fury query staking delegations-to [validator-address] [flags]
 ```
 
 ### Query all delegations to one validator
 
 ```bash
-grid query staking delegations-to <iva...>
+fury query staking delegations-to <iva...>
 ```
 
 Example Output:
 
 ```bash
 Delegation:
-  Delegator:  fury:grid:aa13lcwnxpyn2ea3skzmek64vvnp97jsk8qrcezvm
+  Delegator:  fury:fury:aa13lcwnxpyn2ea3skzmek64vvnp97jsk8qrcezvm
   Validator:  iva1yclscskdtqu9rgufgws293wxp3njsesxxlnhmh
   Shares:     100.0000000000000000000000000000
   Height:     0
 Delegation:
-  Delegator:  fury:grid:aa1td4xnefkthfs6jg469x33shzf578fed6n7k7ua
+  Delegator:  fury:fury:aa1td4xnefkthfs6jg469x33shzf578fed6n7k7ua
   Validator:  iva1yclscskdtqu9rgufgws293wxp3njsesxxlnhmh
   Shares:     1.0000000000000000000000000000
   Height:     26
 ```
 
-## grid query staking unbonding-delegation
+## fury query staking unbonding-delegation
 
 Query an unbonding-delegation record based on delegator and validator address.
 
 ```bash
-grid query staking unbonding-delegation [delegator-addr] [validator-addr] [flags]
+fury query staking unbonding-delegation [delegator-addr] [validator-addr] [flags]
 ```
 
 ### Query an unbonding delegation record
 
 ```bash
-grid query staking unbonding-delegation <did:fury:aa...> <iva...>
+fury query staking unbonding-delegation <did:fury:aa...> <iva...>
 ```
 
-## grid query staking unbonding-delegations
+## fury query staking unbonding-delegations
 
 ### Query all unbonding delegations records of a delegator
 
 ```bash
-grid query staking unbonding-delegations <did:fury:aa...>
+fury query staking unbonding-delegations <did:fury:aa...>
 ```
 
-## grid query staking unbonding-delegations-from
+## fury query staking unbonding-delegations-from
 
 ### Query all unbonding delegations from a validator
 
 ```bash
-grid query staking unbonding-delegations-from <iva...>
+fury query staking unbonding-delegations-from <iva...>
 ```
 
-## grid query staking redelegations-from
+## fury query staking redelegations-from
 
 Query all outgoing redelegations of a validator
 
 ```bash
-grid query staking redelegations-from [validator-address] [flags]
+fury query staking redelegations-from [validator-address] [flags]
 ```
 
 ### Query all outgoing redelegatations of a validator
 
 ```bash
-grid query staking redelegations-from <iva...>
+fury query staking redelegations-from <iva...>
 ```
 
-## grid query staking redelegation
+## fury query staking redelegation
 
 Query a redelegation record based on delegator and source validator address and destination validator address.
 
 ```bash
-grid query staking redelegation [delegator-addr] [src-validator-addr] [dst-validator-addr] [flags]
+fury query staking redelegation [delegator-addr] [src-validator-addr] [dst-validator-addr] [flags]
 ```
 
 ### Query a redelegation record
 
 ```bash
-grid query staking redelegation <did:fury:aa...> <iva...> <iva...>
+fury query staking redelegation <did:fury:aa...> <iva...> <iva...>
 ```
 
-## grid query staking redelegations
+## fury query staking redelegations
 
 ### Query all redelegations records of a delegator
 
 ```bash
-grid query staking redelegations <did:fury:aa...>
+fury query staking redelegations <did:fury:aa...>
 ```
 
-## grid query staking pool
+## fury query staking pool
 
 ### Query the current staking pool values
 
 ```bash
-grid query staking pool
+fury query staking pool
 ```
 
 Example Output:
@@ -193,28 +193,28 @@ Pool:
   Bonded Ratio:   0.2952602076
 ```
 
-## grid query staking params
+## fury query staking params
 
 ### Query the current staking parameters information
 
 ```bash
-grid query staking params
+fury query staking params
 ```
 
-## grid query staking historical-info
+## fury query staking historical-info
 
 ### Query historical info at given height
 
 ```bash
-grid query staking historical-info <height>
+fury query staking historical-info <height>
 ```
 
-## grid tx staking create-validator
+## fury tx staking create-validator
 
-Send a transaction to apply to be a validator and delegate a certain amount of grid to it.
+Send a transaction to apply to be a validator and delegate a certain amount of fury to it.
 
 ```bash
-grid tx staking create-validator [flags]
+fury tx staking create-validator [flags]
 ```
 
 **Flags:**
@@ -239,19 +239,19 @@ grid tx staking create-validator [flags]
 ### Create a validator
 
 ```bash
-grid tx staking create-validator --chain-id=gridiron --from=<key-name> --fees=0.3grid --pubkey=<validator-pubKey> --commission-rate=0.1 --amount=100grid --moniker=<validator-name>
+fury tx staking create-validator --chain-id=fury --from=<key-name> --fees=0.3grid --pubkey=<validator-pubKey> --commission-rate=0.1 --amount=100grid --moniker=<validator-name>
 ```
 
 :::tip
 Follow the [Mainnet](../get-started/mainnet.md#create-validator) instructions to learn more.
 :::
 
-## grid tx staking edit-validator
+## fury tx staking edit-validator
 
 Edit an existing validator's settings, such as commission rate, name, etc.
 
 ```bash
-grid tx staking edit-validator [flags]
+fury tx staking edit-validator [flags]
 ```
 
 **Flags:**
@@ -269,40 +269,40 @@ grid tx staking edit-validator [flags]
 ### Edit validator information
 
 ```bash
-grid tx staking edit-validator --from=<key-name> --chain-id=gridiron --fees=0.3grid --commission-rate=0.10 --moniker=<validator-name>
+fury tx staking edit-validator --from=<key-name> --chain-id=fury --fees=0.3grid --commission-rate=0.10 --moniker=<validator-name>
 ```
 
 ### Upload validator avatar
 
 Please refer to [How to upload my validator's logo to the Explorers](../concepts/validator-faq.md#how-to-upload-my-validator-s-logo-to-the-explorers)
 
-## grid tx staking delegate
+## fury tx staking delegate
 
 Delegate tokens to a validator.
 
 ```bash
-grid tx staking delegate [validator-addr] [amount] [flags]
+fury tx staking delegate [validator-addr] [amount] [flags]
 ```
 
 ```bash
-grid tx staking delegate <iva...> <amount> --chain-id=gridiron --from=<key-name> --fees=0.3grid
+fury tx staking delegate <iva...> <amount> --chain-id=fury --from=<key-name> --fees=0.3grid
 ```
 
-## grid tx staking unbond
+## fury tx staking unbond
 
 Unbond tokens from a validator.
 
 ```bash
-grid tx staking unbond [validator-addr] [amount] [flags]
+fury tx staking unbond [validator-addr] [amount] [flags]
 ```
 
 ### Unbond some tokens from a validator
 
 ```bash
-grid tx staking unbond <iva...> 10grid --from=<key-name> --chain-id=gridiron --fees=0.3grid
+fury tx staking unbond <iva...> 10grid --from=<key-name> --chain-id=fury --fees=0.3grid
 ```
 
-## grid tx staking redelegate
+## fury tx staking redelegate
 
 Transfer delegation from one validator to another.
 
@@ -311,11 +311,11 @@ There is no `unbonding time` during the redelegation, so you will not miss the r
 :::
 
 ```bash
-grid tx staking redelegate [src-validator-addr] [dst-validator-addr] [amount] [flags]
+fury tx staking redelegate [src-validator-addr] [dst-validator-addr] [amount] [flags]
 ```
 
 ### Redelegate some tokens to another validator
 
 ```bash
-grid tx staking redelegate <iva...> <iva...> 10grid --chain-id=gridiron --from=<key-name> --fees=0.3grid
+fury tx staking redelegate <iva...> <iva...> 10grid --chain-id=fury --from=<key-name> --fees=0.3grid
 ```

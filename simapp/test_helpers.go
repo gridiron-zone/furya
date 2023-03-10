@@ -33,7 +33,7 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	minttypes "github.com/gridiron-zone/gridiron/modules/mint/types"
+	minttypes "github.com/gridiron-zone/fury/modules/mint/types"
 )
 
 // DefaultConsensusParams defines the default Tendermint consensus params used in

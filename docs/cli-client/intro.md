@@ -4,15 +4,15 @@ order: 1
 
 # Introduction
 
-`grid` is a command line client for the GRIDhub network. GRIDhub users can use `grid` to send transactions and query the blockchain data.
+`fury` is a command line client for the GRIDhub network. GRIDhub users can use `fury` to send transactions and query the blockchain data.
 
 ## Working Directory
 
-The default working directory for the `grid` is `$HOME/.grid`, which is mainly used to save configuration files and data. The GRIDhub `key` data is saved in the working directory of `grid`. You can also specify the `grid`  working directory by `--home`.
+The default working directory for the `fury` is `$HOME/.fury`, which is mainly used to save configuration files and data. The GRIDhub `key` data is saved in the working directory of `fury`. You can also specify the `fury`  working directory by `--home`.
 
 ## Connecting to a Full Node
 
-The `grid` node provides a RPC interface, transactions and query requests are sent to the process listening to it. The default rpc address the `grid` is connected to is `tcp://localhost:26657`, it can also be specified by `--node`.
+The `fury` node provides a RPC interface, transactions and query requests are sent to the process listening to it. The default rpc address the `fury` is connected to is `tcp://localhost:26657`, it can also be specified by `--node`.
 
 ## Global Flags
 
@@ -23,7 +23,7 @@ All GET commands has the following global flags:
 | Name, shorthand | type   | Required | Default Value        | Description                          |
 | --------------- | ------ | -------- | -------------------- | ------------------------------------ |
 | --chain-id      | string |          |                      | Chain ID of tendermint node          |
-| --home          | string |          | /Users/bianjie/.grid | Directory for config and data        |
+| --home          | string |          | /Users/bianjie/.fury | Directory for config and data        |
 | --trace         | string |          |                      | Print out full stack trace on errors |
 
 ### POST Commands
@@ -52,7 +52,7 @@ All POST commands have the following global flags:
 | --trust-node      | bool   |          | true                  | Don't verify proofs for responses                                                                              |
 | --yes             | bool   |          | true                  | Skip tx broadcasting prompt confirmation                                                                       |
 | --chain-id        | string |          |                       | Chain ID of tendermint node                                                                                    |
-| --home            | string |          |                       | Directory for config and data (default "/Users/bianjie/.grid")                                                 |
+| --home            | string |          |                       | Directory for config and data (default "/Users/bianjie/.fury")                                                 |
 | --trace           | string |          |                       | Print out full stack trace on errors                                                                           |
 
 ## Module Commands

@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/gridiron-zone/gridiron/modules/guardian/types"
+	"github.com/gridiron-zone/fury/modules/guardian/types"
 )
 
 // NewTxCmd returns the transaction commands for the guardian module.

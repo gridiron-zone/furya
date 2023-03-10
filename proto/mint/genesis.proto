@@ -1,10 +1,10 @@
 syntax = "proto3";
-package gridiron.mint;
+package fury.mint;
 
 import "mint/mint.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/gridiron-zone/gridiron/modules/mint/types";
+option go_package = "github.com/gridiron-zone/fury/modules/mint/types";
 
 // GenesisState defines the mint module's genesis state
 message GenesisState {

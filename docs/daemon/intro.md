@@ -4,11 +4,11 @@ order: 1
 
 # Introduction
 
-The `grid` executable program is the entry point for running an GRIDhub node. All the validator nodes and full nodes need to install the `grid` and launching the daemon to join the GRIDhub network. You can also use `grid` to start your own test network locally.
+The `fury` executable program is the entry point for running an GRIDhub node. All the validator nodes and full nodes need to install the `fury` and launching the daemon to join the GRIDhub network. You can also use `fury` to start your own test network locally.
 
 ## Hardware Requeirment
 
-It's recommended that you run gridiron nodes on Linux Server.
+It's recommended that you run fury nodes on Linux Server.
 
 ### Minimum Requeirment
 
@@ -21,11 +21,11 @@ It's recommended that you run gridiron nodes on Linux Server.
 
 ## Home Directory
 
-The home directory is the working directory of the grid node. The home directory contains all the configuration information and all the data that the node runs.
+The home directory is the working directory of the fury node. The home directory contains all the configuration information and all the data that the node runs.
 
-In the `grid` command, you can specify the home directory of the node by using flag `--home`. If you run multiple nodes on the same machine, you need to specify different home directories for them. If the `--home` flag is not specified in the grid command, the default value `$HOME/.grid` is used as the home directory.
+In the `fury` command, you can specify the home directory of the node by using flag `--home`. If you run multiple nodes on the same machine, you need to specify different home directories for them. If the `--home` flag is not specified in the fury command, the default value `$HOME/.fury` is used as the home directory.
 
-The `grid init` command is responsible for initializing the specified `--home` directory and creating the default configuration files. Except the `grid init` command, the home directory used by any other `grid` sub commands must be initialized, otherwise an error will be reported.
+The `fury init` command is responsible for initializing the specified `--home` directory and creating the default configuration files. Except the `fury init` command, the home directory used by any other `fury` sub commands must be initialized, otherwise an error will be reported.
 
 The data of the GRIDhub node is stored in the `data` directory of the home, including blockchain data, application layer data, and index data.
 
@@ -37,7 +37,7 @@ genesis.json defines the genesis block data, which specifies the system paramete
 
 ### node_key.json
 
-node_key.json is used to store the node's key. The node-id queried by `grid tendermint show-node-id` is derived by the key, which is used to indicate the unique identity of the node. It is used in p2p connection.
+node_key.json is used to store the node's key. The node-id queried by `fury tendermint show-node-id` is derived by the key, which is used to indicate the unique identity of the node. It is used in p2p connection.
 
 ### priv_validator.json
 

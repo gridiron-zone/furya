@@ -56,13 +56,13 @@ import (
 	tibcclienttypes "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
 	tibchost "github.com/bianjieai/tibc-go/modules/tibc/core/24-host"
 
-	migratehtlc "github.com/gridiron-zone/gridiron/migrate/htlc"
-	migrateservice "github.com/gridiron-zone/gridiron/migrate/service"
-	migratetibc "github.com/gridiron-zone/gridiron/migrate/tibc"
-	"github.com/gridiron-zone/gridiron/modules/guardian"
-	guardiantypes "github.com/gridiron-zone/gridiron/modules/guardian/types"
-	"github.com/gridiron-zone/gridiron/modules/mint"
-	minttypes "github.com/gridiron-zone/gridiron/modules/mint/types"
+	migratehtlc "github.com/gridiron-zone/fury/migrate/htlc"
+	migrateservice "github.com/gridiron-zone/fury/migrate/service"
+	migratetibc "github.com/gridiron-zone/fury/migrate/tibc"
+	"github.com/gridiron-zone/fury/modules/guardian"
+	guardiantypes "github.com/gridiron-zone/fury/modules/guardian/types"
+	"github.com/gridiron-zone/fury/modules/mint"
+	minttypes "github.com/gridiron-zone/fury/modules/mint/types"
 )
 
 // RegisterUpgradePlan register a handler of upgrade plan
@@ -96,7 +96,7 @@ func (app *GridApp) RegisterUpgradePlan(cfg module.Configurator) {
 				}},
 			)
 			tibcclienttypes.SetDefaultGenesisState(tibcclienttypes.GenesisState{
-				NativeChainName: "gridiron-mainnet",
+				NativeChainName: "fury-mainnet",
 			})
 
 			if err := migratetibc.CreateClient(ctx,

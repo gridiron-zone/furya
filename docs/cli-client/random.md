@@ -1,21 +1,21 @@
 # Random
 
-Rand module allows you to post a random number request to the GRID Hub and query the random numbers or the pending random number requests.
+Rand module allows you to post a random number request to the FURY Hub and query the random numbers or the pending random number requests.
 
 ## Available Commands
 
 | Name                                | Description                                                      |
 | ----------------------------------- | ---------------------------------------------------------------- |
-| [request](#grid-tx-random-request)  | Request a random number with an optional block interval          |
-| [random](#grid-query-random-random) | Query the generated random number by the request id              |
-| [queue](#grid-query-random-queue)   | Query the pending random number requests with an optional height |
+| [request](#fury-tx-random-request)  | Request a random number with an optional block interval          |
+| [random](#fury-query-random-random) | Query the generated random number by the request id              |
+| [queue](#fury-query-random-queue)   | Query the pending random number requests with an optional height |
 
-## grid tx random request
+## fury tx random request
 
 Request a random number.
 
 ```bash
-grid tx random request [flags]
+fury tx random request [flags]
 ```
 
 **Flags:**
@@ -28,34 +28,34 @@ grid tx random request [flags]
 
 ### Request a random number
 
-Post a random number request to the GRID Hub, the random number will be generated after `--block-interval` blocks.
+Post a random number request to the FURY Hub, the random number will be generated after `--block-interval` blocks.
 
 ```bash
 # without oracle
-grid tx random request --block-interval=100 --from=<key-name> --chain-id=gridiron --fees=0.3grid
+fury tx random request --block-interval=100 --from=<key-name> --chain-id=fury --fees=0.3grid
 
 # with oracle
-grid tx random request --block-interval=100 --oracle=true --service-fee-cap=1grid --from=<key-name> --chain-id=gridiron --fees=0.3grid
+fury tx random request --block-interval=100 --oracle=true --service-fee-cap=1grid --from=<key-name> --chain-id=fury --fees=0.3grid
 ```
 
 :::tip
-You will get a unique request id if the tx is committed, which can be used to query the status of the request. You can also [query the tx detail](./tx.md#grid-query-tx) to get the request id.
+You will get a unique request id if the tx is committed, which can be used to query the status of the request. You can also [query the tx detail](./tx.md#fury-query-tx) to get the request id.
 :::
 
-## grid query random random
+## fury query random random
 
 Query the generated random number by the request id.
 
 ```bash
-grid query random random <request-id> [flags]
+fury query random random <request-id> [flags]
 ```
 
-## grid query random queue
+## fury query random queue
 
 Query the pending random number requests with an optional block height.
 
 ```bash
-grid query random queue <gen-height> [flags]
+fury query random queue <gen-height> [flags]
 ```
 
 ### Query random number request queue
@@ -63,5 +63,5 @@ grid query random queue <gen-height> [flags]
 Query the pending random number requests with an optional block height at which random numbers will be generated or request service.
 
 ```bash
-grid query random queue 100000
+fury query random queue 100000
 ```

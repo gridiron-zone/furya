@@ -1,7 +1,7 @@
 syntax = "proto3";
-package gridiron.guardian;
+package fury.guardian;
 
-option go_package = "github.com/gridiron-zone/gridiron/modules/guardian/types";
+option go_package = "github.com/gridiron-zone/fury/modules/guardian/types";
 
 // Msg defines the guardian Msg service
 service Msg {

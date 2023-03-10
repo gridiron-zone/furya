@@ -1,20 +1,20 @@
 # Record
 
-Record module allows you to manage record on GRID Hub
+Record module allows you to manage record on FURY Hub
 
 ## Available Commands
 
 | Name                                | Description        |
 | ----------------------------------- | ------------------ |
-| [create](#grid-tx-record-create)    | Create a record    |
-| [record](#grid-query-record-record) | Query record by id |
+| [create](#fury-tx-record-create)    | Create a record    |
+| [record](#fury-query-record-record) | Query record by id |
 
-## grid tx record create
+## fury tx record create
 
 Create a record
 
 ```bash
-grid tx record create [digest] [digest-algo] [flags]
+fury tx record create [digest] [digest-algo] [flags]
 ```
 
 **Flags:**
@@ -24,10 +24,10 @@ grid tx record create [digest] [digest-algo] [flags]
 | --uri           | string |          |         | Source uri of record, such as an ipfs link |
 | --meta          | string |          |         | meta data of record                        |
 
-## grid query record record
+## fury query record record
 
 Query record by id
 
 ```bash
-grid query record record [record-id]
+fury query record record [record-id]
 ```

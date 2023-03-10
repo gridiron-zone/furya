@@ -69,7 +69,7 @@ func (m *GenesisState) GetSupers() []Super {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "gridiron.guardian.GenesisState")
+	proto.RegisterType((*GenesisState)(nil), "fury.guardian.GenesisState")
 }
 
 func init() { proto.RegisterFile("guardian/genesis.proto", fileDescriptor_5203106ad1456439) }

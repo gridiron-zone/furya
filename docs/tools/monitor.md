@@ -2,7 +2,7 @@
 order: 1
 ---
 
-# GRID Hub Monitor
+# FURY Hub Monitor
 
 ## Introduction
 
@@ -14,7 +14,7 @@ To enable the Prometheus metrics, set `prometheus = true` in your config file(co
 
 ## Metrics
 
-Application metrics, namespace: `grid`
+Application metrics, namespace: `fury`
 
 | **Name**                          | **Type** | **Tags**                       | **Description**                                                               |
 | --------------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ This is an example for getting started with the GRIDhub Monitor by using docker.
 You can download the example [prometheus.yml](https://raw.githubusercontent.com/prometheus/prometheus/master/documentation/examples/prometheus.yml)  to the `~/volumes/prometheus/` and add a job under the `scrape_configs` of the `prometheus.yml`:
 
 ```yaml
-      - job_name: gridiron
+      - job_name: fury
           static_configs:
           - targets: ['localhost:26660']
             labels:

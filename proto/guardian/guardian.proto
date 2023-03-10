@@ -1,9 +1,9 @@
 syntax = "proto3";
-package gridiron.guardian;
+package fury.guardian;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/gridiron-zone/gridiron/modules/guardian/types";
+option go_package = "github.com/gridiron-zone/fury/modules/guardian/types";
 
 // Super defines the super standard
 message Super {

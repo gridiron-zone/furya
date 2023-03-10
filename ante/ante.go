@@ -5,7 +5,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/ante"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	guardiankeeper "github.com/gridiron-zone/gridiron/modules/guardian/keeper"
+	guardiankeeper "github.com/gridiron-zone/fury/modules/guardian/keeper"
 
 	oraclekeeper "github.com/irisnet/irismod/modules/oracle/keeper"
 	tokenkeeper "github.com/irisnet/irismod/modules/token/keeper"
